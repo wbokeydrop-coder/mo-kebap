@@ -1,0 +1,10 @@
+Google Search Console - nota do zgłoszenia sitemap / notatka
+
+Data: 2025-11-19
+
+Proszę zgłosić sitemap: https://www.mo-kebap.de/sitemap.xml
+
+Krótka nota do GSC:
+- Sitemap zawiera wszystkie główne strony: /, /menu, /order, /contact, /privacy, /faq, /about, /lieferung, /impressum
+- Zmiany treści: rozbudowane opisy menu (niemieckie), dodane strony informacyjne i FAQ
+- Prośba: zindeksować nowe treści i potwierdzić brak błędów w raportach indeksowania.

@@ -1,0 +1,21 @@
+AdSense - zgłoszenie do ponownej weryfikacji
+
+Proszę wkleić poniższy tekst w panelu Google AdSense przy zgłaszaniu ponownej weryfikacji:
+
+----------------------------------------
+Zgłaszam ponowną weryfikację strony https://www.mo-kebap.de (ostatnia aktualizacja 2025-11-19).
+
+Wprowadzone zmiany:
+- Plik `ads.txt` dostępny pod https://www.mo-kebap.de/ads.txt zawiera wpis: 
+  google.com, pub-3490607792366389, DIRECT, f08c47fec0942fa0 (zweryfikowano 2025-11-19).
+- Baner zgód cookies (RODO) zaimplementowany: reklamy ładują się dopiero po akceptacji cookies.
+- Treść strony została znacząco rozbudowana: unikalne, niemieckie opisy menu, dodane strony informacyjne: /about, /lieferung, /impressum, /faq.
+- Sitemap opublikowana i dostępna: https://www.mo-kebap.de/sitemap.xml (zawiera wszystkie istotne strony).
+- Canonical ustawiony na https://www.mo-kebap.de/ oraz dodano JSON-LD (Restaurant) w HTML.
+- Serwerowe nagłówki bezpieczeństwa (CSP i inne) zostały zdefiniowane w `vercel.json` i wdrożone; meta-CSP dostępne również w HTML jako fallback.
+
+Proszę o ponowną weryfikację. W razie potrzeby mogę dostarczyć zrzuty ekranu, logi wdrożenia oraz potwierdzenie dostępności poszczególnych zasobów.
+
+----------------------------------------
+
+Notatka: po zatwierdzeniu przez AdSense wstawię realne jednostki reklamowe na wskazane miejsca (jeśli zechcesz, mogę to zrobić od razu po otrzymaniu ID-ów). Pozostawiam implementację reklam wyłączoną do czasu pozytywnej weryfikacji.
