@@ -5,9 +5,15 @@ module.exports = (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('X-Robots-Tag', 'noindex');
   
-  // Important: Google AdSense requires newline at end of file
-  // Using Buffer to preserve exact bytes including trailing newline
-  const adsContent = Buffer.from('google.com, pub-3490607792366389, DIRECT, f08c47fec0942fa0\n', 'utf8');
+  // Important: ads.txt spec requires entries be on their own lines
+  // Adding comment ensures file ends with newline (some parsers require this)
+  const adsLines = [
+    'google.com, pub-3490607792366389, DIRECT, f08c47fec0942fa0',
+    '# Updated for Google AdSense compatibility',
+    ''  // Empty line at end
+  ];
+  
+  const adsContent = Buffer.from(adsLines.join('\n'), 'utf8');
   
   res.status(200).end(adsContent);
 };
