@@ -1,9 +1,9 @@
 {
   "routes": [
-    { "src": "^/ads\\.txt$", "dest": "/api/ads.txt" },
-    { "src": "^/robots\\.txt$", "dest": "/public/robots.txt" },
-    { "src": "^/sitemap\\.xml$", "dest": "/public/sitemap.xml" },
+    { "src": "^/ads\\.txt$", "dest": "/api/ads.txt.js" },
     { "handle": "filesystem" },
+    { "src": "^/robots\\.txt$", "dest": "/robots.txt" },
+    { "src": "^/sitemap\\.xml$", "dest": "/sitemap.xml" },
     { "src": "^/$", "dest": "/api/index" },
     { "src": "^/([^\\.]+)$", "dest": "/api/index" }
   ],
