@@ -1,11 +1,5 @@
 {
-  "rewrites": [
-    { "source": "/ads.txt", "destination": "/api/ads-txt.js" }
-  ],
   "routes": [
-    { "src": "^/ads\\.txt$", "dest": "/api/ads-txt.js" },
-    { "src": "^/robots\\.txt$", "dest": "/public/robots.txt" },
-    { "src": "^/sitemap\\.xml$", "dest": "/public/sitemap.xml" },
     { "handle": "filesystem" },
     { "src": "^/$", "dest": "/api/index" },
     { "src": "^/([^\\.]+)$", "dest": "/api/index" }
@@ -17,10 +11,15 @@
         {
           "key": "Content-Type",
           "value": "text/plain; charset=utf-8"
-        },
+        }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
         {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
         }
       ]
     },

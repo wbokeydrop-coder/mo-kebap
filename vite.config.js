@@ -5,10 +5,19 @@ export default defineConfig({
   plugins: [
     react(),
     {
-      name: 'copy-vercel-json',
+      name: 'copy-special-files',
       closeBundle() {
         const fs = require('fs');
         const path = require('path');
+        
+        // Create ads.txt with proper content
+        const adsContent = 'google.com, pub-3490607792366389, DIRECT, f08c47fec0942fa0\n';
+        fs.writeFileSync(
+          path.resolve(__dirname, 'dist', 'ads.txt'),
+          adsContent
+        );
+        
+        // Create vercel.json for SPA routing
         const vercelJson = {
           routes: [
             { handle: "filesystem" },
