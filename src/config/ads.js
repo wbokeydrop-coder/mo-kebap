@@ -15,7 +15,7 @@ const ADS = {
   },
   
   // Test mode - ustaw na true podczas testowania
-  testMode: true,
+  testMode: false,
   
   // Czy używać responsive ads
   useResponsive: true,
