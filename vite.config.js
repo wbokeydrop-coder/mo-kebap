@@ -10,12 +10,10 @@ export default defineConfig({
         const fs = require('fs');
         const path = require('path');
         
-        // Create ads.txt with proper content
-        const adsContent = 'google.com, pub-3490607792366389, DIRECT, f08c47fec0942fa0\n';
-        fs.writeFileSync(
-          path.resolve(__dirname, 'dist', 'ads.txt'),
-          adsContent
-        );
+        // Create ads.txt with proper content (source of truth: public/ads.txt)
+        const adsSourcePath = path.resolve(__dirname, 'public', 'ads.txt');
+        const adsContent = fs.readFileSync(adsSourcePath, 'utf8');
+        fs.writeFileSync(path.resolve(__dirname, 'dist', 'ads.txt'), adsContent);
         
         // Create vercel.json for SPA routing
         const vercelJson = {
