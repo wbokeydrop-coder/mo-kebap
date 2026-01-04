@@ -1,9 +1,9 @@
 // @ts-nocheck
 import React from 'react'
 import Link from 'next/link'
-import OptimizedAdSense from '../components/OptimizedAdSense'
+import OptimizedAdSense from '../components/OptimizedAdSense.ssrfix'
 import ADS from '../config/ads'
-import AdSense from '../components/AdSense'
+import AdSense from '../components/AdSense.ssrfix'
 
 export const runtime = 'experimental-edge'
 
