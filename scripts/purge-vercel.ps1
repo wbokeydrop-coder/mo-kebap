@@ -14,13 +14,13 @@ Write-Host "Starting Vercel redeploy (will force new production deployment)"
 $vercelPath = (Get-Command vercel -ErrorAction SilentlyContinue).Source
 if ($vercelPath) {
     Write-Host "Found vercel CLI at: $vercelPath"
-    Write-Host "Running: vercel --prod --confirm"
-    vercel --prod --confirm
+  # Usunięto problematyczną linię informacyjną
+    vercel --prod --yes
     exit $LASTEXITCODE
 }
 
 # Fallback to npx
-Write-Host "vercel CLI not found locally — falling back to npx vercel. You may be prompted to login."
-Write-Host "Running: npx vercel --prod --confirm"
-npx vercel --prod --confirm
+Write-Host "vercel CLI not found locally - falling back to npx vercel. You may be prompted to login."
+  # Usunięto problematyczną linię informacyjną
+npx vercel --prod --yes
 exit $LASTEXITCODE

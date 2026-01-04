@@ -1,3 +1,88 @@
+.page-grid > aside {
+  align-self: flex-start !important;
+}
+.menu-col, .page-grid > aside {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  height: 100%;
+}
+
+.cart {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.page-grid {
+  padding-top: 0 !important;
+}
+/* Wyrównanie wysokości kolumn w menu */
+.menu-col {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.cart-fab__modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.32);
+  z-index:150;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+}
+
+.cart-fab__modal-content{
+  background:#fff;
+  color:#222;
+  border-radius:18px 18px 0 0;
+  box-shadow:0 8px 32px rgba(0,0,0,0.25);
+  width:100%;
+  max-width:420px;
+  margin:0 auto;
+  padding:1.2rem 1.2rem 1.5rem 1.2rem;
+  animation:cartFabModalIn 0.22s cubic-bezier(.4,1.6,.6,1) both;
+}
+
+@keyframes cartFabModalIn {
+  from { transform:translateY(100%); opacity:0; }
+  to   { transform:translateY(0); opacity:1; }
+}
+
+.cart-fab__modal-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:0.7rem;
+}
+
+.cart-fab__close{
+  background:transparent;
+  border:none;
+  font-size:1.3rem;
+  color:#222;
+  cursor:pointer;
+  padding:0.2rem 0.5rem;
+  border-radius:6px;
+  transition:background 0.15s;
+}
+.cart-fab__close:hover{
+  background:#f5b30122;
+}
+
+.cart-fab__modal-body{
+  max-height:220px;
+  overflow-y:auto;
+  margin-bottom:1rem;
+}
+
+.cart-fab__modal-footer{
+  border-top:1px solid #eee;
+  padding-top:0.7rem;
+  margin-top:0.7rem;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+}
 /* LORD PIZZA - Dark Theme inspired design */
 :root{
   --primary-gold:#F5B301;
@@ -117,9 +202,80 @@ body{
   align-items:stretch;
 }
 
+/* Mobile-first nav hidden behind burger */
+.burger{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  background:transparent;
+  border:none;
+  cursor:pointer;
+  padding:0.4rem;
+  margin-left:auto;
+}
+
+.burger span{
+  display:block;
+  width:26px;
+  height:3px;
+  background:var(--text-light);
+  border-radius:3px;
+  transition:transform 0.25s ease, opacity 0.25s ease;
+}
+
+.burger.is-open span:nth-child(1){
+  transform:translateY(6px) rotate(45deg);
+}
+
+.burger.is-open span:nth-child(2){
+  opacity:0;
+}
+
+.burger.is-open span:nth-child(3){
+  transform:translateY(-6px) rotate(-45deg);
+}
+
+.nav{
+  position:absolute;
+  top:100%;
+  right:1rem;
+  flex-direction:column;
+  align-items:flex-start;
+  background:rgba(13,13,13,0.96);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:14px;
+  padding:1rem 1.25rem;
+  box-shadow:0 18px 35px rgba(0,0,0,0.45);
+  gap:1rem;
+  min-width:230px;
+  transform:scale(0.97);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.2s ease, transform 0.2s ease;
+}
+
+.nav.nav-open{
+  opacity:1;
+  transform:scale(1);
+  pointer-events:auto;
+}
+
 @media(min-width:768px){
+  .burger{display:none;}
+
   .nav{
+    position:static;
+    flex-direction:row;
+    align-items:center;
+    background:transparent;
+    border:none;
+    box-shadow:none;
+    padding:0;
     gap:2rem;
+    opacity:1;
+    transform:none;
+    pointer-events:auto;
+    min-width:auto;
   }
 }
 
@@ -202,6 +358,109 @@ body{
 
 .cart-cta::after{
   display:none;
+}
+
+/* Floating Cart FAB */
+.cart-fab{
+  position:fixed;
+  right:1rem;
+  bottom:1rem;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:linear-gradient(135deg, #f5b301 0%, #ffcf4a 100%);
+  color:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  box-shadow:0 12px 28px rgba(0,0,0,0.35);
+  z-index:140;
+  transition:transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cart-fab__icon{
+  font-size:1.4rem;
+  line-height:1;
+}
+
+.cart-fab__badge{
+  position:absolute;
+  top:-6px;
+  right:-6px;
+  background:#000;
+  color:#f5b301;
+  min-width:22px;
+  height:22px;
+  border-radius:11px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  font-size:0.8rem;
+  box-shadow:0 0 0 2px rgba(0,0,0,0.12);
+}
+
+.cart-fab__tooltip{
+  position:absolute;
+  right:70px;
+  bottom:8px;
+  background:rgba(0,0,0,0.9);
+  color:#f5f5f5;
+  padding:0.65rem 0.8rem;
+  border-radius:12px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.25);
+  opacity:0;
+  transform:translateY(6px);
+  pointer-events:none;
+  transition:opacity 0.2s ease, transform 0.2s ease;
+  min-width:180px;
+}
+
+.cart-fab__tooltip-title{
+  font-weight:700;
+  font-size:0.95rem;
+}
+
+.cart-fab__tooltip-meta{
+  font-size:0.85rem;
+  color:#f5b301;
+  margin-top:0.15rem;
+}
+
+.cart-fab:hover{
+  transform:translateY(-2px) scale(1.02);
+  box-shadow:0 14px 32px rgba(0,0,0,0.4);
+}
+
+.cart-fab:hover .cart-fab__tooltip{
+  opacity:1;
+  transform:translateY(0);
+}
+
+@media(min-width:768px){
+  .cart-fab{
+    right:1.5rem;
+    bottom:1.5rem;
+  }
+}
+
+/* Menu section centering */
+.menu-list{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.menu-list .grid{
+  justify-content:center;
+  width:100%;
+  max-width:520px;
+  margin:0 auto;
+  grid-template-columns:1fr;
+  gap:1.25rem;
+  padding:0 1.25rem;
 }
 
 /* Hero Section */
@@ -427,6 +686,7 @@ body{
 
 @media(min-width:768px){
   .menu-list .grid{
+    max-width:none;
     grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
     gap:2rem;
     margin-top:3rem;
@@ -544,13 +804,19 @@ body{
   grid-template-columns:1fr;
   gap:2rem;
   padding:2rem;
+  max-width:1200px;
+  margin:0 auto;
+  align-items:start;
 }
 
 .cart{
   background:var(--darker-bg);
-  padding:2rem;
+  padding:2rem 2rem 2rem 2rem;
   border-radius:15px;
   border:1px solid rgba(245,179,1,0.1);
+  height:100%;
+  display:flex;
+  flex-direction:column;
 }
 
 .order-form label{

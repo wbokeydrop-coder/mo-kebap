@@ -1,0 +1,69 @@
+// @ts-nocheck
+import React from 'react'
+import menu from '../data/menu.json'
+import MenuList from '../components/MenuList'
+import Cart from '../components/Cart'
+import OptimizedAdSense from '../components/OptimizedAdSense'
+import ADS from '../config/ads'
+
+export default function MenuPage(){
+  const categories = Array.from(new Set(menu.map(i => i.category)))
+  return (
+    <div className="content-section">
+      <div className="container">
+        <h2 className="section-title">Unsere Speisekarte - Döner, Kebab & Pizza</h2>
+        <p className="section-subtitle">Entdecken Sie unsere köstlichen türkischen Spezialitäten und italienische Pizza in Münsingen</p>
+        
+        <div className="page-grid">
+          <div className="menu-col">
+            {categories.map((cat, index) => (
+              <React.Fragment key={cat}>
+                <MenuList category={cat} items={menu} />
+                {/* OPTIMIZED: Menu In-Feed Ad - Between menu categories */}
+                  {index === 1 && (
+                    <div style={{ margin: '2rem 0' }}>
+                      <OptimizedAdSense 
+                        slot={ADS.slots.menu_infeed_1}
+                        format={ADS.formats.menu_infeed}
+                        channel={ADS.channels.menu_infeed_1}
+                        lazy={true}
+                        minHeight={ADS.lazyLoading.minHeightDesktop}
+                      />
+                    </div>
+                  )}
+                {/* Additional Menu In-Feed Ad - After 3rd category */}
+                  {index === 3 && (
+                    <div style={{ margin: '2rem 0' }}>
+                      <OptimizedAdSense 
+                        slot={ADS.slots.menu_infeed_2}
+                        format={ADS.formats.menu_infeed}
+                        channel={ADS.channels.menu_infeed_2}
+                        lazy={true}
+                        minHeight={ADS.lazyLoading.minHeightDesktop}
+                      />
+                    </div>
+                  )}
+              </React.Fragment>
+            ))}
+          </div>
+          <aside>
+            <Cart />
+            {/* Sidebar AdSense - Optional legacy format */}
+            <div style={{ marginTop: '2rem' }}>
+              <OptimizedAdSense 
+                slot={ADS.slots.menu_rect}
+                format="rectangle"
+                lazy={true}
+                minHeight={250}
+              />
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export async function getStaticProps() {
+  return { props: {} }
+}

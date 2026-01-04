@@ -48,7 +48,7 @@ export default function MenuItem({ item }){
       ) : (
         <LazyImage
           src={item.image} 
-          alt={item.name}
+          alt={`${item.name} – ${item.category || 'Gericht'} bei MO KEBAP in Münsingen`}
           onError={() => setImageError(true)}
         />
       )}

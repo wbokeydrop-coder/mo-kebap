@@ -60,8 +60,16 @@ export default function AdSense({
           // Wait a bit for script to initialize
           setTimeout(() => {
             if (window.adsbygoogle) {
-              (window.adsbygoogle = window.adsbygoogle || []).push({});
-              setAdLoaded(true);
+              let pushed = false;
+              document.querySelectorAll('.adsbygoogle').forEach((el) => {
+                if (el.getAttribute('data-adsbygoogle-status') !== 'done') {
+                  (window.adsbygoogle = window.adsbygoogle || []).push({});
+                  pushed = true;
+                }
+              });
+              if (pushed) {
+                setAdLoaded(true);
+              }
             }
           }, 100);
         }

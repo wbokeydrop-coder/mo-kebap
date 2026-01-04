@@ -1,6 +1,7 @@
 import React from 'react'
+import Link from 'next/link'
 import { useCart } from '../context/CartContext'
-import { Link } from 'react-router-dom'
+import AdSense from './AdSense'
 
 export default function Cart(){
   const { items, removeFromCart, updateQty, total } = useCart()
@@ -66,11 +67,14 @@ export default function Cart(){
           }}>
             Gesamt: € {total().toFixed(2)}
           </div>
+          {/* AdSense pod podsumowaniem zamówienia */}
+          <div style={{ margin: '1.5rem 0', display: 'flex', justifyContent: 'center' }}>
+            <AdSense slot="8991098342" format="horizontal" />
+          </div>
         </>
       )}
-      
       <Link 
-        to="/order" 
+        href="/order" 
         className="btn primary" 
         style={{
           display: 'block',

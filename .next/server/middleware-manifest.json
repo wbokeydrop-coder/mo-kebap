@@ -1,0 +1,34 @@
+{
+  "version": 3,
+  "middleware": {},
+  "functions": {
+    "/": {
+      "files": [
+        "server/middleware-build-manifest.js",
+        "server/middleware-react-loadable-manifest.js",
+        "server/next-font-manifest.js",
+        "server/interception-route-rewrite-manifest.js",
+        "server/edge-runtime-webpack.js",
+        "server/pages/index.js"
+      ],
+      "name": "pages/index",
+      "page": "/",
+      "matchers": [
+        {
+          "regexp": "^/$",
+          "originalSource": "/"
+        }
+      ],
+      "wasm": [],
+      "assets": [],
+      "env": {
+        "__NEXT_BUILD_ID": "eON1JTHc3_WsjyROvbNr8",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "3/lxP1Jm28aG4jylEs4+SNWr4EaIAp3pCd9EhtHC6YU=",
+        "__NEXT_PREVIEW_MODE_ID": "06684711f454c211b9c491d09050904e",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "d75bd5ccead7cfdc0bc8957cec4b595517f7298aac71b39eb691c8ad79da573d",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "b982ae5d35175c427ab56f7ffaf55ef3a979f92c581938a0f008a749fe2f0160"
+      }
+    }
+  },
+  "sortedMiddleware": []
+}

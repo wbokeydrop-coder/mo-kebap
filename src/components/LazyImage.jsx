@@ -44,7 +44,7 @@ export default function LazyImage({ src, alt, className, style, onError }) {
     <img
       ref={setImageRef}
       src={imageSrc || 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"%3E%3Crect fill="%23333" width="800" height="600"/%3E%3C/svg%3E'}
-      alt={alt}
+      alt={alt || 'Frisch zubereitetes Gericht von MO KEBAP in Münsingen'}
       className={className}
       style={style}
       loading="lazy"

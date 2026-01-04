@@ -21,7 +21,11 @@ export default function CookieConsent() {
           document.head.appendChild(s)
           s.onload = () => {
             try {
-              (window.adsbygoogle = window.adsbygoogle || []).push({})
+              document.querySelectorAll('.adsbygoogle').forEach((el) => {
+                if (el.getAttribute('data-adsbygoogle-status') !== 'done') {
+                  (window.adsbygoogle = window.adsbygoogle || []).push({})
+                }
+              })
             } catch (e) {
               console.warn('adsbygoogle push failed after load', e)
             }
@@ -46,7 +50,11 @@ export default function CookieConsent() {
         document.head.appendChild(s)
         s.onload = () => {
           try {
-            (window.adsbygoogle = window.adsbygoogle || []).push({})
+            document.querySelectorAll('.adsbygoogle').forEach((el) => {
+              if (el.getAttribute('data-adsbygoogle-status') !== 'done') {
+                (window.adsbygoogle = window.adsbygoogle || []).push({})
+              }
+            })
           } catch (e) {
             console.warn('adsbygoogle push failed after load', e)
           }

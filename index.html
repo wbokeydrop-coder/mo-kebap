@@ -6,8 +6,81 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     
     <!-- SEO Meta Tags -->
-    <title>MO KEBAP Münsingen - Kebab, Döner & Pizza | Türkisches Essen 72525</title>
-    <meta name="description" content="MO KEBAP in Münsingen (72525) - Beste Döner, Kebab und Pizza in Baden-Württemberg. Schnelles türkisches Essen, frisch zubereitet. Jetzt online bestellen oder vor Ort genießen!" />
+    <title>Mo Kebap Münsingen – Döner, Pizza & Türkische Spezialitäten | Online bestellen</title>
+    <meta name="description" content="Frischer Döner, Pizza und türkische Spezialitäten in Münsingen. Jetzt online bestellen auf mo-kebap.de – schnelle Lieferung, faire Preise, hausgemachte Qualität." />
+        <!-- Structured Data: consolidated graph for Restaurant, Organization, WebSite, BreadcrumbList -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Restaurant",
+              "@id": "https://www.mo-kebap.de/#restaurant",
+              "name": "Mo Kebap Münsingen",
+              "image": "https://www.mo-kebap.de/images/logo.jpg",
+              "description": "Türkisches Restaurant in Münsingen – Döner, Kebab, Pizza, Lahmacun und Pide.",
+              "url": "https://www.mo-kebap.de/",
+              "telephone": "+49 174 9633343",
+              "priceRange": "€",
+              "servesCuisine": ["Türkisch", "Pizza", "Döner", "Kebab"],
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Hauptstraße",
+                "addressLocality": "Münsingen",
+                "addressRegion": "Baden-Württemberg",
+                "postalCode": "72525",
+                "addressCountry": "DE"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "48.4098",
+                "longitude": "9.4957"
+              },
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                  "opens": "11:00",
+                  "closes": "22:00"
+                }
+              ],
+              "acceptsReservations": false,
+              "hasMenu": "https://www.mo-kebap.de/menu",
+              "menu": "https://www.mo-kebap.de/menu"
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://www.mo-kebap.de/#organization",
+              "name": "Mo Kebap Münsingen",
+              "url": "https://www.mo-kebap.de/",
+              "logo": "https://www.mo-kebap.de/images/logo.jpg",
+              "sameAs": [
+                "https://www.facebook.com/",
+                "https://www.instagram.com/"
+              ]
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://www.mo-kebap.de/#website",
+              "url": "https://www.mo-kebap.de/",
+              "name": "Mo Kebap Münsingen",
+              "inLanguage": "de",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://www.mo-kebap.de/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Start", "item": "https://www.mo-kebap.de/"},
+                {"@type": "ListItem", "position": 2, "name": "Speisekarte", "item": "https://www.mo-kebap.de/menu"}
+              ]
+            }
+          ]
+        }
+        </script>
     <meta name="keywords" content="Kebab Münsingen, Döner Münsingen, Pizza Münsingen, türkisches Essen Münsingen, schnelles Essen in der Nähe, Döner Baden-Württemberg, Lahmacun, Pide, Restaurant Münsingen 72525" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="author" content="MO KEBAP Münsingen" />
@@ -21,7 +94,7 @@
     <meta property="og:url" content="https://www.mo-kebap.de/" />
     <meta property="og:title" content="MO KEBAP Münsingen - Kebab, Döner & Pizza" />
     <meta property="og:description" content="Beste Döner, Kebab und Pizza in Münsingen (72525). Türkisches Essen frisch zubereitet. Jetzt online bestellen!" />
-    <meta property="og:image" content="https://www.mo-kebap.de/images/logo.png" />
+    <meta property="og:image" content="https://www.mo-kebap.de/images/logo.jpg" />
     <meta property="og:locale" content="de_DE" />
     
     <!-- Twitter -->
@@ -29,7 +102,7 @@
     <meta name="twitter:url" content="https://www.mo-kebap.de/" />
     <meta name="twitter:title" content="MO KEBAP Münsingen - Kebab, Döner & Pizza" />
     <meta name="twitter:description" content="Beste Döner, Kebab und Pizza in Münsingen (72525). Türkisches Essen frisch zubereitet." />
-    <meta name="twitter:image" content="https://www.mo-kebap.de/images/logo.png" />
+    <meta name="twitter:image" content="https://www.mo-kebap.de/images/logo.jpg" />
     
     <!-- Canonical URL - dynamically updated by React Router -->
     <link rel="canonical" href="https://www.mo-kebap.de/" />
@@ -38,14 +111,20 @@
     <meta name="google-adsense-account" content="ca-pub-3490607792366389" />
     <meta name="google-adsense-platform-account" content="ca-pub-3490607792366389" />
     
+    <!-- Lazy Loading Configuration for AdSense -->
+    <meta name="adsense-lazy-loading" content="enabled" />
+    <meta name="adsense-lazy-rootmargin" content="400px 0px" />
+    <meta name="adsense-placeholder-minheight-desktop" content="280" />
+    <meta name="adsense-placeholder-minheight-mobile" content="200" />
+    
     <!-- Security meta fallback (CSP and other policy meta tags) -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://pagead2.googlesyndication.com https://www.googletagmanager.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: http:; frame-src 'self' https://www.google.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com; connect-src 'self' https://pagead2.googlesyndication.com https://www.google-analytics.com https://googleads.g.doubleclick.net; object-src 'none'; base-uri 'self'; form-action 'self';" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/images/logo.png" />
-    <link rel="apple-touch-icon" href="/images/logo.png" />
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
+    <link rel="apple-touch-icon" href="/images/logo.jpg" />
     
     <!-- Preconnect for performance and AdSense -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -58,53 +137,31 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3490607792366389"
             crossorigin="anonymous"></script>
     
-    <!-- Schema.org Structured Data - LocalBusiness -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Restaurant",
-      "@id": "https://www.mo-kebap.de/#restaurant",
-      "name": "MO KEBAP",
-      "image": "https://www.mo-kebap.de/images/logo.png",
-      "description": "Türkisches Restaurant in Münsingen - Spezialisiert auf Döner, Kebab, Pizza, Lahmacun und Pide",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Hauptstraße",
-        "addressLocality": "Münsingen",
-        "addressRegion": "Baden-Württemberg",
-        "postalCode": "72525",
-        "addressCountry": "DE"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "48.4098",
-        "longitude": "9.4957"
-      },
-      "url": "https://www.mo-kebap.de",
-      "telephone": "+4901749633343",
-      "servesCuisine": ["Türkisch", "Pizza", "Kebab", "Döner"],
-      "priceRange": "€€",
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-          "opens": "11:00",
-          "closes": "22:00"
-        }
-      ],
-      "acceptsReservations": "False",
-      "hasMenu": "https://www.mo-kebap.de/menu",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.5",
-        "reviewCount": "150"
-      }
-    }
-    </script>
     <!-- redeploy-timestamp: 2025-11-19T00:00:00Z - safe edit to force redeploy when pushed -->
   </head>
   <body>
-    <div id="root"></div>
+        <!-- AdSense Banner 728x90: CLS-safe placeholder with unique slot -->
+        <div style="width:100%;display:flex;justify-content:center;margin:16px 0;min-height:90px;position:relative;">
+          <div aria-hidden="true" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:14px;color:#666;background:linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.06));border-radius:8px;pointer-events:none;">
+            Anzeige lädt...
+          </div>
+          <ins class="adsbygoogle"
+            style="display:inline-block;width:728px;height:90px"
+            data-ad-client="ca-pub-3490607792366389"
+            data-ad-slot="3902277401"></ins>
+        </div>
+        <script>
+          window.addEventListener('load', function () {
+            if (window.adsbygoogle && document.querySelectorAll('.adsbygoogle').length) {
+              try {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+              } catch (e) {
+                console.warn('AdSense push error:', e);
+              }
+            }
+          });
+        </script>
+        <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

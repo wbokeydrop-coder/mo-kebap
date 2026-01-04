@@ -1,17 +1,18 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import Link from 'next/link'
 import { useCart } from '../context/CartContext'
 
 export default function Header(){
   const { items } = useCart()
   const count = items.reduce((s, i) => s + (i.qty || 0), 0)
+  const [open, setOpen] = useState(false)
 
   return (
     <header className="site-header">
       <div className="header-inner">
-        <Link to="/" className="brand">
+        <Link href="/" className="brand">
           <img 
-            src="/images/logo.png" 
+            src="/images/logohead.png" 
             alt="MO KEBAP Logo" 
             className="logo-img"
             style={{
@@ -22,19 +23,41 @@ export default function Header(){
             }}
           />
           <div>
-            <h1>MO KEBAP</h1>
+            <div
+              className="brand-title"
+              role="heading"
+              aria-level="2"
+              style={{
+                margin: 0,
+                fontSize: '2rem',
+                fontWeight: 800,
+                lineHeight: 1.1
+              }}
+            >
+              MO KEBAP
+            </div>
             <p className="slogan">Frisch. Herzhaft. Heimat.</p>
           </div>
         </Link>
+        <button
+          className={`burger ${open ? 'is-open' : ''}`}
+          aria-expanded={open}
+          aria-label="Menü öffnen"
+          onClick={() => setOpen(v => !v)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
 
-        <nav className="nav">
-          <Link to="/">Startseite</Link>
-          <Link to="/menu">Speisekarte</Link>
-          <Link to="/about">Über uns</Link>
-          <Link to="/lieferung">Lieferung</Link>
-          <Link to="/order">Bestellen</Link>
-          <Link to="/contact">Kontakt</Link>
-          <Link to="/order" className="cart-cta" style={{
+        <nav className={`nav ${open ? 'nav-open' : ''}`}>
+          <Link href="/">Startseite</Link>
+          <Link href="/menu">Speisekarte</Link>
+          <Link href="/about">Über uns</Link>
+          <Link href="/lieferung">Lieferung</Link>
+          <Link href="/order">Bestellen</Link>
+          <Link href="/contact">Kontakt</Link>
+          <Link href="/order" className="cart-cta" style={{
             display: 'flex',
             alignItems: 'center',
             gap: '0.5rem',
