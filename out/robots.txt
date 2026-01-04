@@ -1,0 +1,43 @@
+# robots.txt for mo-kebap.de
+# Optimized for search engines and AdSense
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /src/
+Disallow: /scripts/
+Disallow: /node_modules/
+
+# Explicitly allow important files for AdSense and SEO
+Allow: /ads.txt
+Allow: /sitemap.xml
+Allow: /robots.txt
+Allow: /images/
+
+# Sitemap location
+Sitemap: https://www.mo-kebap.de/sitemap.xml
+
+# Google-specific (important for AdSense)
+User-agent: Googlebot
+Allow: /
+Allow: /ads.txt
+Allow: /menu
+Allow: /contact
+Allow: /order
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: Googlebot-Image
+Allow: /images/
+
+# AdSense bot
+User-agent: Mediapartners-Google
+Allow: /
+Allow: /ads.txt
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/

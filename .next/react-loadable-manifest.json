@@ -1,1 +1,12 @@
-{}
+{
+  "components\\AdSense.ssrfix.tsx -> ./AdSense": {
+    "id": 3409,
+    "files": [
+      "static/chunks/409.72ea8b58eebed3d0.js"
+    ]
+  },
+  "components\\OptimizedAdSense.ssrfix.tsx -> ./OptimizedAdSense": {
+    "id": 9619,
+    "files": []
+  }
+}
