@@ -5,7 +5,7 @@ import OptimizedAdSense from '../components/OptimizedAdSense.ssrfix'
 import ADS from '../config/ads'
 import AdSense from '../components/AdSense.ssrfix'
 
-export const runtime = 'experimental-edge'
+export const runtime = 'nodejs'
 
 export default function Home(){
   return (
