@@ -22,17 +22,15 @@ class MyDocument extends Document {
           <meta property="og:url" content="https://www.mo-kebap.de/" />
           <meta property="og:title" content="MO KEBAP Münsingen - Kebab, Döner & Pizza" />
           <meta property="og:description" content="Beste Döner, Kebab und Pizza in Münsingen (72525). Türkisches Essen frisch zubereitet. Jetzt online bestellen!" />
-          {/* Local copy of original image: https://www.mo-kebap.de/images/logo.jpg */}
-          {/* Downloaded and verified on 2026-01-04 */}
-          <meta property="og:image" content="/images/logo.jpg" />
+          {/* Default social image (1200x630) */}
+          <meta property="og:image" content="/images/logohead.png" />
           <meta property="og:locale" content="de_DE" />
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:url" content="https://www.mo-kebap.de/" />
           <meta name="twitter:title" content="MO KEBAP Münsingen - Kebab, Döner & Pizza" />
           <meta name="twitter:description" content="Beste Döner, Kebab und Pizza in Münsingen (72525). Türkisches Essen frisch zubereitet." />
-          {/* Local copy of original image: https://www.mo-kebap.de/images/logo.jpg */}
-          {/* Downloaded and verified on 2026-01-04 */}
-          <meta name="twitter:image" content="/images/logo.jpg" />
+          {/* Default social image (1200x630) */}
+          <meta name="twitter:image" content="/images/logohead.png" />
           <link rel="canonical" href="https://www.mo-kebap.de/" />
           <meta name="google-adsense-account" content="ca-pub-3490607792366389" />
           <meta name="google-adsense-platform-account" content="ca-pub-3490607792366389" />

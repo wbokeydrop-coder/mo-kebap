@@ -1,5 +1,6 @@
 // @ts-nocheck
 import React from 'react'
+import Link from 'next/link'
 
 export default function Impressum(){
   return (
@@ -31,6 +32,12 @@ export default function Impressum(){
       </section>
 
       <p style={{ color: '#bbb', marginTop: '1.5rem' }}><em>Hinweis: Bitte ergänzen Sie die fehlenden Pflichtangaben (Inhabername, USt-ID) bevor Veröffentlichung.</em></p>
+      <p style={{ color: '#ccc', marginTop: '1rem' }}>
+        Kontakt aufnehmen? Besuchen Sie unsere{' '}
+        <Link href="/contact" style={{ color: '#d4af37' }}>Kontaktseite</Link>{' '}
+        oder informieren Sie sich in unserer{' '}
+        <Link href="/privacy" style={{ color: '#d4af37' }}>Datenschutzerklärung</Link>.
+      </p>
     </div>
   )
 }

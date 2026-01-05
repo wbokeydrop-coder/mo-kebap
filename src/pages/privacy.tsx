@@ -1,5 +1,6 @@
 // @ts-nocheck
 import React from 'react'
+import Link from 'next/link'
 
 export default function Privacy() {
   return (
@@ -189,6 +190,12 @@ export default function Privacy() {
           Für externe Links übernehmen wir keine Verantwortung.
         </p>
       </div>
+
+      <p style={{ marginTop: '1.5rem', color: '#ccc' }}>
+        Weitere rechtliche Hinweise finden Sie im{' '}
+        <Link href="/impressum" style={{ color: '#d4af37' }}>Impressum</Link>. Bei Fragen können Sie uns über die{' '}
+        <Link href="/contact" style={{ color: '#d4af37' }}>Kontaktseite</Link> erreichen.
+      </p>
     </div>
   )
 }

@@ -28,12 +28,15 @@ export default function OptimizedAdSense({
   lazy = true,
   minHeight = null,
   style = {},
-  responsive = true
+  responsive = true,
+  rootMargin = '400px 0px'
 }) {
   const [adLoaded, setAdLoaded] = useState(!lazy);
   const [hasConsent, setHasConsent] = useState(false);
   const adContainerRef = useRef(null);
+  const pushedRef = useRef(false);
   const observerRef = useRef(null);
+  const effectiveRootMargin = (slot === '7948160161' || slot === '3767396093') ? '200px 0px' : rootMargin;
 
   // Determine min-height based on format and device
   const getMinHeight = () => {
@@ -77,6 +80,8 @@ export default function OptimizedAdSense({
   };
 
   useEffect(() => {
+    pushedRef.current = false;
+
     // Check for cookie consent
     const checkConsent = () => {
       try {
@@ -115,12 +120,13 @@ export default function OptimizedAdSense({
     const setupLazyLoading = () => {
       if (!lazy || !adContainerRef.current) return;
 
-      // Create observer with 400px rootMargin for preloading
+      // Create observer with configurable rootMargin for preloading
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
               setAdLoaded(true);
+              setTimeout(pushAdSafely, 50);
               if (observerRef.current) {
                 observerRef.current.unobserve(entry.target);
               }
@@ -128,13 +134,31 @@ export default function OptimizedAdSense({
           });
         },
         {
-          rootMargin: '400px 0px',
+          rootMargin: effectiveRootMargin,
           threshold: 0
         }
       );
 
       observerRef.current = observer;
       observer.observe(adContainerRef.current);
+    };
+
+    // Push only the ins inside this component
+    const pushAdSafely = () => {
+      try {
+        const insEl = adContainerRef.current?.querySelector('ins.adsbygoogle');
+        if (!insEl || pushedRef.current) return;
+        if (insEl.getAttribute('data-adsbygoogle-status') === 'done') {
+          pushedRef.current = true;
+          return;
+        }
+        if (window.adsbygoogle) {
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+          pushedRef.current = true;
+        }
+      } catch (err) {
+        console.error('AdSense push error:', err);
+      }
     };
 
     // Initialize ads
@@ -147,16 +171,8 @@ export default function OptimizedAdSense({
 
           // Wait a bit for script to initialize and DOM to be ready
           setTimeout(() => {
-            if (adLoaded && adContainerRef.current && window.adsbygoogle) {
-              try {
-                document.querySelectorAll('.adsbygoogle').forEach((el) => {
-                  if (el.getAttribute('data-adsbygoogle-status') !== 'done') {
-                    (window.adsbygoogle = window.adsbygoogle || []).push({});
-                  }
-                });
-              } catch (err) {
-                console.error('AdSense push error:', err);
-              }
+            if (adLoaded) {
+              pushAdSafely();
             }
           }, 100);
         }
@@ -172,7 +188,7 @@ export default function OptimizedAdSense({
         observerRef.current.unobserve(adContainerRef.current);
       }
     };
-  }, [slot, adLoaded, lazy]);
+  }, [slot, lazy]);
 
   // Show placeholder in development
   if (process.env.NODE_ENV !== 'production') {

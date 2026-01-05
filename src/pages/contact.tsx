@@ -1,5 +1,6 @@
 // @ts-nocheck
 import React from 'react'
+import Link from 'next/link'
 import OptimizedAdSense from '../components/OptimizedAdSense'
 import ADS from '../config/ads'
 
@@ -151,6 +152,13 @@ export default function Contact(){
             bestellen Sie bequem über WhatsApp. Wir freuen uns auf Ihren Besuch!
           </p>
         </div>
+      </div>
+
+      <div style={{ marginTop: '2rem', textAlign: 'center', color: '#ccc' }}>
+        Weitere Informationen finden Sie in unserem{' '}
+        <Link href="/impressum" style={{ color: 'var(--primary-gold)' }}>Impressum</Link>{' '}
+        und der{' '}
+        <Link href="/privacy" style={{ color: 'var(--primary-gold)' }}>Datenschutzerklärung</Link>.
       </div>
       </div>
     </div>

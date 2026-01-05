@@ -1,5 +1,6 @@
 // @ts-nocheck
 import React from 'react'
+import Link from 'next/link'
 // Image source: images.pexels.com
 // Verified working on 2026-01-04
 import menu from '../data/menu'
@@ -62,6 +63,12 @@ export default function MenuPage(){
             </div>
           </aside>
         </div>
+      </div>
+      <div style={{ marginTop: '2rem', textAlign: 'center', color: '#ccc' }}>
+        Planen Sie eine Lieferung? Lesen Sie mehr auf unserer{' '}
+        <Link href="/lieferung" style={{ color: 'var(--primary-gold)' }}>Lieferseite</Link>{' '}
+        und schließen Sie Ihre Bestellung auf der{' '}
+        <Link href="/order" style={{ color: 'var(--primary-gold)' }}>Checkout-Seite</Link> ab.
       </div>
       </div>
     </div>
