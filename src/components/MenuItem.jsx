@@ -22,22 +22,21 @@ export default function MenuItem({ item }){
     'Gemischter Salat','Döner Salat','Cola','Fanta','Sprite','Wasser','Ayran','Eistee'
   ]
 
-  const normalizeForSearch = (name) => {
-    const stripped = name
+  const slugify = (name) => {
+    const ascii = name
       .normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '')
-      .replace(/ß/g, 'ss')
-      .replace(/ö/g, 'o')
-      .replace(/Ö/g, 'O')
-      .replace(/ü/g, 'u')
-      .replace(/Ü/g, 'U')
-      .replace(/ä/g, 'a')
-      .replace(/Ä/g, 'A');
-    return encodeURIComponent(stripped);
+      .replace(/ß/g, 'ss');
+    return ascii
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '')
+      .trim()
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-');
   }
 
   const nameImageMap = Object.fromEntries(
-    dishNames.map((name) => [name, `https://www.pexels.com/search/${normalizeForSearch(name)}/`])
+    dishNames.map((name) => [name, `https://cdn.example.com/images/${slugify(name)}.jpg`])
   )
 
   const categoryImageMap = {
