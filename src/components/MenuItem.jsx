@@ -7,104 +7,38 @@ export default function MenuItem({ item }){
   const [selectedSize, setSelectedSize] = useState(null)
   const [imageError, setImageError] = useState(false)
 
-  const makeImage = (query, sig) => `https://source.unsplash.com/featured/900x600/?${encodeURIComponent(query)}&sig=${sig}`
+  const dishNames = [
+    'Margherita','Salami','Prosciutto','Funghi','Tonno','Sucuk','Hawaii','Vegetariana','Quattro Stagioni','Quattro Formaggi','Speciale','Diavola','Capricciosa','Calzone','Bolognese','Carbonara','Marinara','Döner Pizza','Prosciutto e Funghi','Spinaci','Rucola','Napoli','Romana','Mexicana','BBQ Chicken','Lord Special','Mista','Party Pizza',
+    'Pizzatasche Sucuk','Pizzatasche Salami','Pizzatasche Schinken','Pizzatasche Thunfisch','Pizzatasche Döner','Pizzatasche Vegetarisch','Pizzatasche Hackfleisch','Pizzatasche Spinat',
+    'Pide Sucuk','Pide Käse','Pide Hackfleisch','Pide Spinat','Pide Gemischt','Pide Ei','Pide Thunfisch','Pide Salami','Pide Schinken','Pide Champignons','Pide Vegetarisch',
+    'Lahmacun','Lahmacun mit Salat','Lahmacun mit Döner',
+    'Yufka Döner','Yufka Vegetarisch','Yufka Falafel',
+    'Döner Tasche','Döner Teller','Döner Box','Kebap im Fladenbrot','Dürüm Döner','Köfte im Brot','Adana Kebap','Iskender Kebap',
+    'Falafel Tasche','Falafel Teller','Falafel Box',
+    'Pommes klein','Pommes groß',
+    'Hähnchen Teller','Lamm Teller','Mix Grill Teller','Köfte Teller',
+    'Manakisch Käse','Manakisch Zaatar','Manakisch Sucuk','Manakisch Hackfleisch','Manakisch Spinat','Manakisch Ei','Manakisch Thunfisch','Manakisch Gemischt',
+    'Chicken Wings','Chicken Nuggets','Cheeseburger','Döner Burger','Crispy Chicken Burger','Crispy Chicken Box','Crispy Chicken Wings',
+    'Gemischter Salat','Döner Salat','Cola','Fanta','Sprite','Wasser','Ayran','Eistee'
+  ]
 
-  // Dish-specific remote images mapped by exact name
-  const nameImageMap = {
-    'Margherita': makeImage('margherita pizza', 1),
-    'Salami': makeImage('salami pizza', 2),
-    'Prosciutto': makeImage('prosciutto pizza', 3),
-    'Funghi': makeImage('mushroom pizza', 4),
-    'Tonno': makeImage('tuna pizza', 5),
-    'Sucuk': makeImage('sucuk pizza', 6),
-    'Hawaii': makeImage('hawaiian pizza', 7),
-    'Vegetariana': makeImage('vegetarian pizza', 8),
-    'Quattro Stagioni': makeImage('quattro stagioni pizza', 9),
-    'Quattro Formaggi': makeImage('quattro formaggi pizza', 10),
-    'Speciale': makeImage('special pizza salami schinken', 11),
-    'Diavola': makeImage('diavola spicy salami pizza', 12),
-    'Capricciosa': makeImage('capricciosa pizza', 13),
-    'Calzone': makeImage('calzone pizza', 14),
-    'Bolognese': makeImage('bolognese pizza', 15),
-    'Carbonara': makeImage('carbonara pizza', 16),
-    'Marinara': makeImage('marinara pizza', 17),
-    'Döner Pizza': makeImage('doner kebab pizza', 18),
-    'Prosciutto e Funghi': makeImage('prosciutto funghi pizza', 19),
-    'Spinaci': makeImage('spinach pizza', 20),
-    'Rucola': makeImage('rucola prosciutto pizza', 21),
-    'Napoli': makeImage('napoli anchovy pizza', 22),
-    'Romana': makeImage('romana pizza', 23),
-    'Mexicana': makeImage('mexican pizza jalapeno', 24),
-    'BBQ Chicken': makeImage('bbq chicken pizza', 25),
-    'Lord Special': makeImage('loaded meat pizza', 26),
-    'Mista': makeImage('mixed topping pizza', 27),
-    'Party Pizza': makeImage('party sheet pizza', 28),
-    'Pizzatasche Sucuk': makeImage('pizzatasche sucuk', 29),
-    'Pizzatasche Salami': makeImage('pizzatasche salami', 30),
-    'Pizzatasche Schinken': makeImage('pizzatasche ham', 31),
-    'Pizzatasche Thunfisch': makeImage('pizzatasche tuna', 32),
-    'Pizzatasche Döner': makeImage('pizzatasche doner kebab', 33),
-    'Pizzatasche Vegetarisch': makeImage('pizzatasche vegetarian', 34),
-    'Pizzatasche Hackfleisch': makeImage('pizzatasche minced meat', 35),
-    'Pizzatasche Spinat': makeImage('pizzatasche spinach', 36),
-    'Pide Sucuk': makeImage('pide sucuk', 37),
-    'Pide Käse': makeImage('pide cheese', 38),
-    'Pide Hackfleisch': makeImage('pide minced meat', 39),
-    'Pide Spinat': makeImage('pide spinach', 40),
-    'Pide Gemischt': makeImage('pide mixed toppings', 41),
-    'Pide Ei': makeImage('pide egg', 42),
-    'Pide Thunfisch': makeImage('pide tuna', 43),
-    'Pide Salami': makeImage('pide salami', 44),
-    'Pide Schinken': makeImage('pide ham', 45),
-    'Pide Champignons': makeImage('pide mushroom', 46),
-    'Pide Vegetarisch': makeImage('pide vegetarian', 47),
-    'Lahmacun': makeImage('lahmacun', 48),
-    'Lahmacun mit Salat': makeImage('lahmacun salad', 49),
-    'Lahmacun mit Döner': makeImage('lahmacun doner kebab', 50),
-    'Yufka Döner': makeImage('durum doner', 51),
-    'Yufka Vegetarisch': makeImage('vegetarian durum wrap', 52),
-    'Yufka Falafel': makeImage('falafel wrap', 53),
-    'Döner Tasche': makeImage('doner tasche sandwich', 54),
-    'Döner Teller': makeImage('doner teller plate', 55),
-    'Döner Box': makeImage('doner box fries', 56),
-    'Kebap im Fladenbrot': makeImage('kebab sandwich fladenbrot', 57),
-    'Dürüm Döner': makeImage('durum kebab roll', 58),
-    'Köfte im Brot': makeImage('kofte sandwich', 59),
-    'Adana Kebap': makeImage('adana kebab plate', 60),
-    'Iskender Kebap': makeImage('iskender kebab', 61),
-    'Falafel Tasche': makeImage('falafel sandwich', 62),
-    'Falafel Teller': makeImage('falafel plate', 63),
-    'Falafel Box': makeImage('falafel box fries', 64),
-    'Pommes klein': makeImage('french fries small', 65),
-    'Pommes groß': makeImage('french fries large', 66),
-    'Hähnchen Teller': makeImage('grilled chicken plate', 67),
-    'Lamm Teller': makeImage('lamb plate', 68),
-    'Mix Grill Teller': makeImage('mixed grill plate', 69),
-    'Köfte Teller': makeImage('kofte plate', 70),
-    'Manakisch Käse': makeImage('manakish cheese', 71),
-    'Manakisch Zaatar': makeImage('manakish zaatar', 72),
-    'Manakisch Sucuk': makeImage('manakish sucuk', 73),
-    'Manakisch Hackfleisch': makeImage('manakish minced meat', 74),
-    'Manakisch Spinat': makeImage('manakish spinach', 75),
-    'Manakisch Ei': makeImage('manakish egg', 76),
-    'Manakisch Thunfisch': makeImage('manakish tuna', 77),
-    'Manakisch Gemischt': makeImage('manakish mixed toppings', 78),
-    'Chicken Wings': makeImage('chicken wings', 79),
-    'Chicken Nuggets': makeImage('chicken nuggets', 80),
-    'Cheeseburger': makeImage('cheeseburger', 81),
-    'Döner Burger': makeImage('doner burger', 82),
-    'Crispy Chicken Burger': makeImage('crispy chicken burger', 83),
-    'Crispy Chicken Box': makeImage('crispy chicken box fries', 84),
-    'Crispy Chicken Wings': makeImage('crispy chicken wings', 85),
-    'Gemischter Salat': makeImage('mixed salad bowl', 86),
-    'Döner Salat': makeImage('doner salad', 87),
-    'Cola': makeImage('cola glass bottle', 88),
-    'Fanta': makeImage('fanta orange soda', 89),
-    'Sprite': makeImage('sprite soda', 90),
-    'Wasser': makeImage('bottle of water', 91),
-    'Ayran': makeImage('ayran drink', 92),
-    'Eistee': makeImage('iced tea glass', 93)
+  const normalizeForSearch = (name) => {
+    const stripped = name
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/ß/g, 'ss')
+      .replace(/ö/g, 'o')
+      .replace(/Ö/g, 'O')
+      .replace(/ü/g, 'u')
+      .replace(/Ü/g, 'U')
+      .replace(/ä/g, 'a')
+      .replace(/Ä/g, 'A');
+    return encodeURIComponent(stripped);
   }
+
+  const nameImageMap = Object.fromEntries(
+    dishNames.map((name) => [name, `https://www.pexels.com/search/${normalizeForSearch(name)}/`])
+  )
 
   const categoryImageMap = {
     'Pizza': '/menu/pizza.jpg',
