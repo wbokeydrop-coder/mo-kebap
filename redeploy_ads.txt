@@ -1,0 +1,2 @@
+Trigger AdSense redeploy marker.
+Date: 2026-01-05
