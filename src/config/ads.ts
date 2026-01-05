@@ -6,10 +6,10 @@ const ADS = {
   // Ad slots configuration with custom channels and formats
   slots: {
     // Legacy/unused fallbacks
-    footer: 'PLACEHOLDER_SLOT_FOOTER_LEGACY',
-    menu_top: 'PLACEHOLDER_SLOT_MENU_TOP_LEGACY',
-    menu_rect: 'PLACEHOLDER_SLOT_MENU_RECT',
-    gallery_inarticle: 'PLACEHOLDER_SLOT_GALLERY_INARTICLE',
+    footer: '3849133055',
+    menu_top: '7948160161',
+    menu_rect: '3767396093',
+    gallery_inarticle: '8939831729',
 
     // Current placements (replace placeholders with real slot IDs from AdSense UI)
     hero_auto: '5513568514',
