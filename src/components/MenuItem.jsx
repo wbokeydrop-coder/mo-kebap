@@ -7,7 +7,22 @@ export default function MenuItem({ item }){
   const [selectedSize, setSelectedSize] = useState(null)
   const [imageError, setImageError] = useState(false)
 
-  // Prefer local category-based photos to avoid remote placeholders
+  const normalizedName = (item.name || '').toLowerCase()
+
+  // Specific per-dish images as requested
+  const nameImageMap = {
+    'margherita': 'https://www.food-insider.com/recipe/classic-margherita-pizza-recipe',
+    'salami': 'https://www.daskochrezept.de/rezepte/pizza-salami-wie-vom-italiener',
+    'lahmacun': 'https://www.giverecipe.com/lahmacun-with-whole-wheat-flour',
+    'falafel teller': 'https://speisekartenweb.de/rezepte/Vegetarisch/Arabischer Falafel-Teller-20605'
+  }
+
+  const isKebab = normalizedName.includes('döner') || normalizedName.includes('kebap') || normalizedName.includes('kebab')
+  const kebabImage = 'https://www.firemergency.de/doner-doner-kebab-originalrezept'
+
+  // Prefer explicit dish image, then kebab-specific, then category-based local photos
+  const specificImage = nameImageMap[normalizedName] || (isKebab ? kebabImage : null)
+
   const categoryImageMap = {
     'Pizza': '/menu/pizza.jpg',
     'Pizzataschen': '/menu/pizza.jpg',
@@ -24,7 +39,8 @@ export default function MenuItem({ item }){
     'Grillgerichte': '/menu/doner.jpg',
     'Getränke': '/images/logo.jpg'
   }
-  const displayImage = categoryImageMap[item.category] || item.image || '/menu/doner.jpg'
+
+  const displayImage = specificImage || categoryImageMap[item.category] || item.image || '/menu/doner.jpg'
   
   // Jeśli produkt ma rozmiary (pizza), pokaż wybór rozmiaru
   const hasSizes = item.sizes && Object.keys(item.sizes).length > 0

@@ -1,19 +1,28 @@
 .page-grid > aside {
   align-self: flex-start !important;
 }
-.menu-col, .page-grid > aside {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-  height: 100%;
-}
 
-.cart {
+.menu-col, .page-grid > aside {
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
 
 .page-grid {
   padding-top: 0 !important;
+}
+
+.cart-column{
+  align-self:flex-start;
+  position:sticky;
+  top:0;
+  height:auto;
+}
+
+.cart {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  max-height: calc(100vh - 140px);
+  overflow: auto;
 }
 /* Wyrównanie wysokości kolumn w menu */
 .menu-col {
@@ -849,7 +858,6 @@ body{
   padding:2rem 2rem 2rem 2rem;
   border-radius:15px;
   border:1px solid rgba(245,179,1,0.1);
-  height:100%;
   display:flex;
   flex-direction:column;
 }
@@ -925,8 +933,14 @@ body{
     padding:1rem;
   }
   
+  .cart-column{
+    position:static;
+  }
+
   .cart{
     padding:1rem;
+    max-height:none;
+    position:static;
   }
   
   .order-form{

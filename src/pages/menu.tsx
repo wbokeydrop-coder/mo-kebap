@@ -50,7 +50,7 @@ export default function MenuPage(){
               </React.Fragment>
             ))}
           </div>
-          <aside>
+          <aside className="cart-column">
             <Cart />
             {/* Sidebar AdSense - Optional legacy format */}
             <div style={{ marginTop: '2rem' }}>
