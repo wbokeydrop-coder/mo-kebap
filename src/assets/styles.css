@@ -668,6 +668,11 @@ body{
   background:var(--dark-bg);
 }
 
+/* When wrapped in page-shell, let the background image show through */
+.page-shell .content-section{
+  background:transparent;
+}
+
 @media(min-width:768px){
   .content-section{
     padding:5rem 2rem;
