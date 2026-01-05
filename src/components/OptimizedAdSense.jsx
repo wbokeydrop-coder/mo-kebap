@@ -37,23 +37,17 @@ export default function OptimizedAdSense({
 
   // Determine min-height based on format and device
   const getMinHeight = () => {
-    if (minHeight) return minHeight;
-    
     const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-    
-    switch(format) {
-      case 'fluid':
-      case 'auto':
-        return isMobile ? 200 : 280;
-      case 'multiplex':
-        return isMobile ? 300 : 400;
-      case 'rectangle':
-        return 250;
-      case 'horizontal':
-        return 90;
-      default:
-        return isMobile ? 200 : 280;
+    if (minHeight !== null && minHeight !== undefined) {
+      // Honor smaller explicit heights (e.g., anchor), but default mobile to 200px when higher.
+      if (isMobile) {
+        return minHeight < 200 ? minHeight : 200;
+      }
+      return minHeight;
     }
+
+    // Default stable heights
+    return isMobile ? 200 : 280;
   };
 
   // A/B test: Randomly assign layout-key if not provided

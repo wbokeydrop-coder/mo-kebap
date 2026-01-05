@@ -8,6 +8,7 @@ import AdSense from '../components/AdSense.ssrfix'
 export const runtime = 'nodejs'
 
 export default function Home(){
+  // TODO: replace homepage hero/section image with real pizzeria photo
   return (
     <section className="hero">
       {/* OPTIMIZED: Hero Auto Ad - High RPM placement at top of page */}
@@ -19,7 +20,7 @@ export default function Home(){
           slot={ADS.slots.hero_auto}
           format={ADS.formats.hero_auto}
           channel={ADS.channels.hero_auto}
-          lazy={true}
+          lazy={false}
           minHeight={ADS.lazyLoading.minHeightDesktop}
         />
       </div>

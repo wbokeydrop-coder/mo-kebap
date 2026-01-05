@@ -57,7 +57,7 @@ export default function MenuPage(){
                 slot={ADS.slots.menu_rect}
                 format="rectangle"
                 lazy={true}
-                minHeight={250}
+                minHeight={ADS.lazyLoading.minHeightDesktop}
               />
             </div>
           </aside>
