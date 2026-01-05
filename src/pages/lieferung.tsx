@@ -3,7 +3,8 @@ import React from 'react'
 
 export default function Lieferung(){
   return (
-    <div style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem 1rem', color: '#e0e0e0', lineHeight: 1.7 }}>
+    <div className="page-shell">
+      <div style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem 1rem', color: '#e0e0e0', lineHeight: 1.7 }}>
       <h1 style={{ color: '#d4af37', fontSize: '2.5rem', marginBottom: '1rem', borderBottom: '3px solid #d4af37', paddingBottom: '0.5rem' }}>Lieferung & Abholung</h1>
 
       <section style={{ marginBottom: '1.25rem' }}>
@@ -38,6 +39,7 @@ export default function Lieferung(){
 
       <div style={{ marginTop: '2rem', padding: '1rem', background: 'rgba(212, 175, 55, 0.06)', borderLeft: '4px solid #d4af37', borderRadius: '4px' }}>
         <p style={{ margin: 0, color: '#ddd' }}><strong>Tipp:</strong> Bei größeren Bestellungen kontaktieren Sie uns bitte telefonisch für eine kürzere Lieferzeit.</p>
+      </div>
       </div>
     </div>
   )

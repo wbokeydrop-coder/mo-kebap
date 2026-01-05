@@ -3,7 +3,8 @@ import React from 'react'
 
 export default function About(){
   return (
-    <div style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem 1rem', color: '#e0e0e0', lineHeight: 1.7 }}>
+    <div className="page-shell">
+      <div style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem 1rem', color: '#e0e0e0', lineHeight: 1.7 }}>
       <h1 style={{ color: '#d4af37', fontSize: '2.5rem', marginBottom: '1rem', borderBottom: '3px solid #d4af37', paddingBottom: '0.5rem' }}>Über MO KEBAP</h1>
 
       <p style={{ color: '#bbb', marginBottom: '1rem' }}>
@@ -33,6 +34,7 @@ export default function About(){
         <h2 style={{ color: '#d4af37', fontSize: '1.6rem', marginBottom: '.5rem' }}>Kontakt</h2>
         <p style={{ color: '#ccc' }}>Telefon: 0174 9633343<br/>E-Mail: info@mo-kebab.de<br/>Adresse: Hauptstraße, 72525 Münsingen</p>
       </section>
+      </div>
     </div>
   )
 }

@@ -5,8 +5,9 @@ import ADS from '../config/ads'
 
 export default function Contact(){
   return (
-    <div className="content-section">
-      <div className="container">
+    <div className="page-shell">
+      <div className="content-section">
+        <div className="container">
         <h2 className="section-title">Kontakt & Standort</h2>
         <p className="section-subtitle">Besuchen Sie uns in Münsingen - Beste Döner, Kebab und Pizza in Baden-Württemberg</p>
         
@@ -150,6 +151,7 @@ export default function Contact(){
             bestellen Sie bequem über WhatsApp. Wir freuen uns auf Ihren Besuch!
           </p>
         </div>
+      </div>
       </div>
     </div>
   )

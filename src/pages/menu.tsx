@@ -1,6 +1,8 @@
 // @ts-nocheck
 import React from 'react'
-import menu from '../data/menu.json'
+// Image source: images.pexels.com
+// Verified working on 2026-01-04
+import menu from '../data/menu'
 import MenuList from '../components/MenuList'
 import Cart from '../components/Cart'
 import OptimizedAdSense from '../components/OptimizedAdSense'
@@ -9,8 +11,9 @@ import ADS from '../config/ads'
 export default function MenuPage(){
   const categories = Array.from(new Set(menu.map(i => i.category)))
   return (
-    <div className="content-section">
-      <div className="container">
+    <div className="page-shell">
+      <div className="content-section">
+        <div className="container">
         <h2 className="section-title">Unsere Speisekarte - Döner, Kebab & Pizza</h2>
         <p className="section-subtitle">Entdecken Sie unsere köstlichen türkischen Spezialitäten und italienische Pizza in Münsingen</p>
         
@@ -59,6 +62,7 @@ export default function MenuPage(){
             </div>
           </aside>
         </div>
+      </div>
       </div>
     </div>
   )
