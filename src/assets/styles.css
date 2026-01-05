@@ -475,7 +475,7 @@ body{
   align-items:center;
   justify-content:center;
   background-color:var(--dark-bg);
-  background-image:url('/bg.jpg');
+  background-image:url('/images/logo.jpg');
   background-size:cover;
   background-position:center;
   background-attachment:fixed;
