@@ -36,6 +36,7 @@ export default function OptimizedAdSense({
   const adContainerRef = useRef(null);
   const pushedRef = useRef(false);
   const observerRef = useRef(null);
+  const pushAttemptsRef = useRef(0);
   const effectiveRootMargin = (slot === '7948160161' || slot === '3767396093') ? '200px 0px' : rootMargin;
 
   // Determine min-height based on format and device
@@ -81,6 +82,7 @@ export default function OptimizedAdSense({
 
   useEffect(() => {
     pushedRef.current = false;
+    pushAttemptsRef.current = 0;
 
     // Check for cookie consent
     const checkConsent = () => {
@@ -148,6 +150,12 @@ export default function OptimizedAdSense({
       try {
         const insEl = adContainerRef.current?.querySelector('ins.adsbygoogle');
         if (!insEl || pushedRef.current) return;
+        const width = insEl.getBoundingClientRect().width || insEl.offsetWidth || 0;
+        if (width <= 0 && pushAttemptsRef.current < 5) {
+          pushAttemptsRef.current += 1;
+          requestAnimationFrame(pushAdSafely);
+          return;
+        }
         if (insEl.getAttribute('data-adsbygoogle-status') === 'done') {
           pushedRef.current = true;
           return;
