@@ -6,6 +6,25 @@ export default function MenuItem({ item }){
   const { addToCart } = useCart()
   const [selectedSize, setSelectedSize] = useState(null)
   const [imageError, setImageError] = useState(false)
+
+  // Prefer local category-based photos to avoid remote placeholders
+  const categoryImageMap = {
+    'Pizza': '/menu/pizza.jpg',
+    'Pizzataschen': '/menu/pizza.jpg',
+    'Pide': '/menu/pizza.jpg',
+    'Lahmacun': '/menu/lahmacun.jpg',
+    'Yufka': '/menu/doner.jpg',
+    'Kebap Snacks': '/menu/doner.jpg',
+    'Burger': '/menu/doner.jpg',
+    'Crispy Chicken': '/menu/doner.jpg',
+    'Salate': '/menu/salat.jpg',
+    'Vegetarisches': '/menu/salat.jpg',
+    'Tellergerichte': '/menu/doner.jpg',
+    'Frühstück': '/menu/doner.jpg',
+    'Grillgerichte': '/menu/doner.jpg',
+    'Getränke': '/images/logo.jpg'
+  }
+  const displayImage = categoryImageMap[item.category] || item.image || '/menu/doner.jpg'
   
   // Jeśli produkt ma rozmiary (pizza), pokaż wybór rozmiaru
   const hasSizes = item.sizes && Object.keys(item.sizes).length > 0
@@ -47,7 +66,7 @@ export default function MenuItem({ item }){
         </div>
       ) : (
         <LazyImage
-          src={item.image} 
+          src={displayImage}
           alt={`${item.name} – ${item.category || 'Gericht'} bei MO KEBAP in Münsingen`}
           onError={() => setImageError(true)}
         />
