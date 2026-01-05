@@ -1,0 +1,2 @@
+Trigger static export rebuild after AdSense slot updates.
+Date: 2026-01-05
