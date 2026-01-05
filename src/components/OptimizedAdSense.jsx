@@ -36,6 +36,7 @@ export default function OptimizedAdSense({
   const adContainerRef = useRef(null);
   const pushedRef = useRef(false);
   const observerRef = useRef(null);
+  const resizeObserverRef = useRef(null);
   const pushAttemptsRef = useRef(0);
   const effectiveRootMargin = (slot === '7948160161' || slot === '3767396093') ? '200px 0px' : rootMargin;
 
@@ -145,24 +146,43 @@ export default function OptimizedAdSense({
       observer.observe(adContainerRef.current);
     };
 
-    // Push only the ins inside this component
+    // Push only the ins inside this component when size is ready
     const pushAdSafely = () => {
       try {
         const insEl = adContainerRef.current?.querySelector('ins.adsbygoogle');
         if (!insEl || pushedRef.current) return;
-        const width = insEl.getBoundingClientRect().width || insEl.offsetWidth || 0;
-        if (width <= 0 && pushAttemptsRef.current < 5) {
-          pushAttemptsRef.current += 1;
-          requestAnimationFrame(pushAdSafely);
+
+        const getWidth = (el) => el?.getBoundingClientRect?.().width || el?.offsetWidth || 0;
+        const width = getWidth(insEl);
+
+        if (width <= 0) {
+          // Watch for the first non-zero width before pushing adsbygoogle
+          if (resizeObserverRef.current) {
+            resizeObserverRef.current.disconnect();
+          }
+          const ro = new ResizeObserver((entries) => {
+            for (const entry of entries) {
+              const targetWidth = entry.contentRect?.width || getWidth(entry.target);
+              if (targetWidth > 0 && !pushedRef.current) {
+                pushAdSafely();
+              }
+            }
+          });
+          resizeObserverRef.current = ro;
+          ro.observe(insEl);
           return;
         }
+
         if (insEl.getAttribute('data-adsbygoogle-status') === 'done') {
           pushedRef.current = true;
+          resizeObserverRef.current?.disconnect();
           return;
         }
+
         if (window.adsbygoogle) {
           (window.adsbygoogle = window.adsbygoogle || []).push({});
           pushedRef.current = true;
+          resizeObserverRef.current?.disconnect();
         }
       } catch (err) {
         console.error('AdSense push error:', err);
@@ -194,6 +214,9 @@ export default function OptimizedAdSense({
     return () => {
       if (observerRef.current && adContainerRef.current) {
         observerRef.current.unobserve(adContainerRef.current);
+      }
+      if (resizeObserverRef.current) {
+        resizeObserverRef.current.disconnect();
       }
     };
   }, [slot, lazy]);
