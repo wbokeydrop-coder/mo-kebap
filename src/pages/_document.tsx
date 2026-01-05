@@ -22,13 +22,17 @@ class MyDocument extends Document {
           <meta property="og:url" content="https://www.mo-kebap.de/" />
           <meta property="og:title" content="MO KEBAP Münsingen - Kebab, Döner & Pizza" />
           <meta property="og:description" content="Beste Döner, Kebab und Pizza in Münsingen (72525). Türkisches Essen frisch zubereitet. Jetzt online bestellen!" />
-          <meta property="og:image" content="https://www.mo-kebap.de/images/logo.jpg" />
+          {/* Local copy of original image: https://www.mo-kebap.de/images/logo.jpg */}
+          {/* Downloaded and verified on 2026-01-04 */}
+          <meta property="og:image" content="/images/logo.jpg" />
           <meta property="og:locale" content="de_DE" />
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:url" content="https://www.mo-kebap.de/" />
           <meta name="twitter:title" content="MO KEBAP Münsingen - Kebab, Döner & Pizza" />
           <meta name="twitter:description" content="Beste Döner, Kebab und Pizza in Münsingen (72525). Türkisches Essen frisch zubereitet." />
-          <meta name="twitter:image" content="https://www.mo-kebap.de/images/logo.jpg" />
+          {/* Local copy of original image: https://www.mo-kebap.de/images/logo.jpg */}
+          {/* Downloaded and verified on 2026-01-04 */}
+          <meta name="twitter:image" content="/images/logo.jpg" />
           <link rel="canonical" href="https://www.mo-kebap.de/" />
           <meta name="google-adsense-account" content="ca-pub-3490607792366389" />
           <meta name="google-adsense-platform-account" content="ca-pub-3490607792366389" />
@@ -36,7 +40,7 @@ class MyDocument extends Document {
           <meta name="adsense-lazy-rootmargin" content="400px 0px" />
           <meta name="adsense-placeholder-minheight-desktop" content="280" />
           <meta name="adsense-placeholder-minheight-mobile" content="200" />
-          <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://pagead2.googlesyndication.com https://www.googletagmanager.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: http:; frame-src 'self' https://www.google.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com; connect-src 'self' https://pagead2.googlesyndication.com https://www.google-analytics.com https://googleads.g.doubleclick.net; object-src 'none'; base-uri 'self'; form-action 'self';" />
+          <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://pagead2.googlesyndication.com https://www.googletagmanager.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://www.gstatic.com https://adservice.google.com https://adservice.google.de; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: http:; frame-src 'self' https://www.google.com https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://fundingchoicesmessages.google.com https://adservice.google.com https://adservice.google.de; connect-src 'self' https://pagead2.googlesyndication.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://adservice.google.com https://adservice.google.de; object-src 'none'; base-uri 'self'; form-action 'self';" />
           <meta name="referrer" content="strict-origin-when-cross-origin" />
           <meta httpEquiv="X-Frame-Options" content="SAMEORIGIN" />
           <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
@@ -61,7 +65,9 @@ class MyDocument extends Document {
                     '@type': 'Restaurant',
                     '@id': 'https://www.mo-kebap.de/#restaurant',
                     name: 'Mo Kebap Münsingen',
-                    image: 'https://www.mo-kebap.de/images/logo.jpg',
+                    // Local copy of original image: https://www.mo-kebap.de/images/logo.jpg
+                    // Downloaded and verified on 2026-01-04
+                    image: '/images/logo.jpg',
                     description: 'Türkisches Restaurant in Münsingen – Döner, Kebab, Pizza, Lahmacun und Pide.',
                     url: 'https://www.mo-kebap.de/',
                     telephone: '+49 174 9633343',
@@ -97,7 +103,9 @@ class MyDocument extends Document {
                     '@id': 'https://www.mo-kebap.de/#organization',
                     name: 'Mo Kebap Münsingen',
                     url: 'https://www.mo-kebap.de/',
-                    logo: 'https://www.mo-kebap.de/images/logo.jpg',
+                    // Local copy of original image: https://www.mo-kebap.de/images/logo.jpg
+                    // Downloaded and verified on 2026-01-04
+                    logo: '/images/logo.jpg',
                     sameAs: ['https://www.facebook.com/', 'https://www.instagram.com/']
                   },
                   {
