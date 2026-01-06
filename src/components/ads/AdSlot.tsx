@@ -46,25 +46,33 @@ export function AdSlot({ adUnitId, className, minHeight = 250, width, height, re
 
   if (!hasConsent) return null
 
-  const inlineStyles: React.CSSProperties = {
-    display: !responsive && width && height ? 'inline-block' : 'block',
-    width: width ? `${width}px` : '100%',
-    minHeight: height ?? minHeight,
-    height: height ? `${height}px` : undefined
-  }
+  const isFixed = Boolean(width && height && !responsive)
+
+  const inlineStyles: React.CSSProperties = isFixed
+    ? {
+        display: 'inline-block',
+        width: `${width}px`,
+        height: `${height}px`,
+        minHeight: `${height}px`
+      }
+    : {
+        display: 'block',
+        width: '100%',
+        minHeight: height ?? minHeight,
+        height: height ? `${height}px` : undefined
+      }
 
   return (
     <div
       ref={wrapRef}
       className={className}
       style={{
-        width: width ? `${width}px` : '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        minHeight: height ?? minHeight,
-        height: height ? `${height}px` : undefined,
-        position: 'relative',
-        margin: '16px 0'
+        width: isFixed && width ? `${width}px` : '100%',
+        height: isFixed && height ? `${height}px` : height ? `${height}px` : undefined,
+        maxWidth: isFixed && width ? `${width}px` : undefined,
+        margin: '16px auto',
+        display: 'block',
+        position: 'relative'
       }}
     >
       <ins
