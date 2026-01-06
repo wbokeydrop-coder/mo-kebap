@@ -10,6 +10,7 @@ import { CartProvider } from '../context/CartContext'
 import { useConsent } from '../components/hooks/useConsent'
 import { useAdsenseLoader } from '../components/hooks/useAdsenseLoader'
 import { ConsentBar } from '../components/consent/ConsentBar'
+import { HomeTopAd } from '../components/ads/HomeTopAd'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { hasConsent, acceptConsent } = useConsent()
@@ -18,6 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <CartProvider>
       <Header />
+      <HomeTopAd />
       <main className="site-main">
         <Component {...pageProps} />
       </main>
