@@ -6,9 +6,12 @@ type AdSlotProps = {
   adUnitId: string
   className?: string
   minHeight?: number
+  width?: number
+  height?: number
+  responsive?: boolean
 }
 
-export function AdSlot({ adUnitId, className, minHeight = 250 }: AdSlotProps) {
+export function AdSlot({ adUnitId, className, minHeight = 250, width, height, responsive = true }: AdSlotProps) {
   const { hasConsent } = useConsent()
   const scriptReady = useAdsenseLoader(hasConsent)
   const wrapRef = useRef<HTMLDivElement | null>(null)
@@ -43,14 +46,20 @@ export function AdSlot({ adUnitId, className, minHeight = 250 }: AdSlotProps) {
 
   if (!hasConsent) return null
 
+  const inlineStyles: React.CSSProperties = {
+    display: 'block',
+    width: width ? `${width}px` : '100%',
+    minHeight: height ?? minHeight
+  }
+
   return (
     <div
       ref={wrapRef}
       className={className}
       style={{
-        width: '100%',
+        width: width ? `${width}px` : '100%',
         display: 'block',
-        minHeight,
+        minHeight: height ?? minHeight,
         position: 'relative',
         margin: '16px 0'
       }}
@@ -76,11 +85,11 @@ export function AdSlot({ adUnitId, className, minHeight = 250 }: AdSlotProps) {
       )}
       <ins
         className="adsbygoogle"
-        style={{ display: 'block', width: '100%', minHeight }}
+        style={inlineStyles}
         data-ad-client="ca-pub-3490607792366389"
         data-ad-slot={adUnitId}
         data-ad-format="auto"
-        data-full-width-responsive="true"
+        data-full-width-responsive={responsive.toString()}
       />
     </div>
   )
