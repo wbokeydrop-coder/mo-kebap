@@ -67,25 +67,6 @@ export function AdSlot({ adUnitId, className, minHeight = 250, width, height, re
         margin: '16px 0'
       }}
     >
-      {!canRender && (
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: 14,
-            color: '#666',
-            background:
-              'linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.06))',
-            borderRadius: 8,
-            pointerEvents: 'none'
-          }}
-        >
-          Anzeige lädt...
-        </div>
-      )}
       <ins
         className="adsbygoogle"
         style={inlineStyles}
