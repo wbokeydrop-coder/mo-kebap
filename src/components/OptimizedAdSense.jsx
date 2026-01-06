@@ -32,7 +32,6 @@ export default function OptimizedAdSense({
   rootMargin = '400px 0px'
 }) {
   const [adLoaded, setAdLoaded] = useState(!lazy);
-  const [hasConsent, setHasConsent] = useState(false);
   const adContainerRef = useRef(null);
   const pushedRef = useRef(false);
   const observerRef = useRef(null);
@@ -84,23 +83,6 @@ export default function OptimizedAdSense({
   useEffect(() => {
     pushedRef.current = false;
     pushAttemptsRef.current = 0;
-
-    // Check for cookie consent
-    const checkConsent = () => {
-      try {
-        const consent = typeof window !== 'undefined' ? localStorage.getItem('cookieConsent') : null;
-        const consentAccepted = consent === 'accepted';
-        setHasConsent(consentAccepted);
-        return consentAccepted;
-      } catch (error) {
-        console.error('Error checking consent:', error);
-        return false;
-      }
-    };
-
-    if (!checkConsent()) {
-      return;
-    }
 
     // Load AdSense script if not already loaded
     const loadAdSenseScript = () => {
@@ -247,11 +229,6 @@ export default function OptimizedAdSense({
         <div style={{ fontSize: '0.75rem', color: '#666' }}>Slot: {slot || 'Not configured'}</div>
       </div>
     );
-  }
-
-  // Don't render if user didn't accept cookies
-  if (!hasConsent) {
-    return null;
   }
 
   // Don't render if slot is still placeholder

@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import { useConsent } from '../hooks/useConsent'
 import { useAdsenseLoader } from '../hooks/useAdsenseLoader'
 
 type AdSlotProps = {
@@ -12,13 +11,12 @@ type AdSlotProps = {
 }
 
 export function AdSlot({ adUnitId, className, minHeight = 250, width, height, responsive = true }: AdSlotProps) {
-  const { hasConsent } = useConsent()
-  const scriptReady = useAdsenseLoader(hasConsent)
+  const scriptReady = useAdsenseLoader()
   const wrapRef = useRef<HTMLDivElement | null>(null)
   const [canRender, setCanRender] = useState(false)
 
   useEffect(() => {
-    if (!hasConsent || !wrapRef.current) return
+    if (!wrapRef.current) return
     const el = wrapRef.current
     const checkWidth = () => {
       const w = el.getBoundingClientRect().width
@@ -28,10 +26,10 @@ export function AdSlot({ adUnitId, className, minHeight = 250, width, height, re
     const ro = new ResizeObserver(checkWidth)
     ro.observe(el)
     return () => ro.disconnect()
-  }, [hasConsent])
+  }, [])
 
   useEffect(() => {
-    if (!hasConsent || !scriptReady || !canRender) return
+    if (!scriptReady || !canRender) return
     const ins = wrapRef.current?.querySelector('ins.adsbygoogle')
     if (!ins) return
     try {
@@ -42,9 +40,7 @@ export function AdSlot({ adUnitId, className, minHeight = 250, width, height, re
     } catch (e) {
       console.warn('AdSense push error', e)
     }
-  }, [hasConsent, scriptReady, canRender])
-
-  if (!hasConsent) return null
+  }, [scriptReady, canRender])
 
   const isFixed = Boolean(width && height && !responsive)
 

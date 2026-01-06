@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 
-export function useAdsenseLoader(enabled: boolean) {
+export function useAdsenseLoader() {
   const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
-    if (!enabled || typeof document === 'undefined') return
+    if (typeof document === 'undefined') return
 
     const existing = document.querySelector(
       'script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]'
@@ -22,7 +22,7 @@ export function useAdsenseLoader(enabled: boolean) {
     s.onload = () => setLoaded(true)
     s.onerror = () => setLoaded(false)
     document.head.appendChild(s)
-  }, [enabled])
+  }, [])
 
   return loaded
 }

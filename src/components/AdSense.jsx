@@ -14,26 +14,8 @@ export default function AdSense({
   style = {}
 }) {
   const [adLoaded, setAdLoaded] = useState(false);
-  const [hasConsent, setHasConsent] = useState(false);
 
   useEffect(() => {
-    // Check for cookie consent
-    const checkConsent = () => {
-      try {
-        const consent = typeof window !== 'undefined' ? localStorage.getItem('cookieConsent') : null;
-        const consentAccepted = consent === 'accepted';
-        setHasConsent(consentAccepted);
-        return consentAccepted;
-      } catch (error) {
-        console.error('Error checking consent:', error);
-        return false;
-      }
-    };
-
-    if (!checkConsent()) {
-      return;
-    }
-
     // Load AdSense script if not already loaded
     const loadAdSenseScript = () => {
       if (document.querySelector('script[src*="pagead2.googlesyndication.com"]')) {
@@ -95,11 +77,6 @@ export default function AdSense({
         AdSense Placeholder ({format}) - Slot: {slot}
       </div>
     );
-  }
-
-  // In production: only render ad element if user accepted cookies
-  if (!hasConsent) {
-    return null;
   }
 
   // Don't render if slot is still placeholder
