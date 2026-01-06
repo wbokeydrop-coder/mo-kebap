@@ -130,20 +130,6 @@ class MyDocument extends Document {
           />
         </Head>
         <body>
-          <div style={{width:'100%',display:'flex',justifyContent:'center',margin:'16px 0',minHeight:'90px',position:'relative'}}>
-            <div aria-hidden="true" style={{position:'absolute',inset:0,display:'flex',alignItems:'center',justifyContent:'center',fontSize:'14px',color:'#666',background:'linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.06))',borderRadius:'8px',pointerEvents:'none'}}>
-              Anzeige lädt...
-            </div>
-            <ins
-              className="adsbygoogle"
-              style={{display:'inline-block',width:'728px',height:'90px'}}
-              data-ad-client="ca-pub-3490607792366389"
-              data-ad-slot="3902277401"
-            ></ins>
-          </div>
-          <script dangerouslySetInnerHTML={{
-            __html: `window.addEventListener('load', function () {\n  if (window.adsbygoogle && document.querySelectorAll('.adsbygoogle').length) {\n    try {\n      document.querySelectorAll('.adsbygoogle').forEach(function (el) {\n        if (el.getAttribute('data-adsbygoogle-status') !== 'done') {\n          (adsbygoogle = window.adsbygoogle || []).push({});\n        }\n      });\n    } catch (e) {\n      console.warn('AdSense push error:', e);\n    }\n  }\n});`
-          }} />
           <Main />
           <NextScript />
         </body>
