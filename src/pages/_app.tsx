@@ -7,7 +7,7 @@ import MobileAnchorAd from '../components/MobileAnchorAd'
 import FloatingCartFab from '../components/FloatingCartFab'
 import { CartProvider } from '../context/CartContext'
 import { useAdsenseLoader } from '../components/hooks/useAdsenseLoader'
-import { HomeTopAd } from '../components/ads/HomeTopAd'
+// HomeTopAd removed from layout
 
 function MyApp({ Component, pageProps }: AppProps) {
   useAdsenseLoader()
@@ -15,7 +15,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <CartProvider>
       <Header />
-      <HomeTopAd />
       <main className="site-main">
         <Component {...pageProps} />
       </main>
