@@ -2,10 +2,15 @@ import { AdSlot } from './AdSlot'
 
 export function HomeTopAd() {
   return (
-    <div style={{ width: '100%', display: 'flex', justifyContent: 'center', margin: '16px 0' }}>
-      <div style={{ width: 728, height: 90 }}>
-        <AdSlot adUnitId="5215359075" minHeight={90} width={728} height={90} responsive={false} />
-      </div>
+    <div
+      style={{
+        width: '100%',
+        maxWidth: 728,
+        margin: '16px auto',
+        display: 'block'
+      }}
+    >
+      <AdSlot adUnitId="5215359075" minHeight={90} width={728} height={90} responsive={false} />
     </div>
   )
 }
