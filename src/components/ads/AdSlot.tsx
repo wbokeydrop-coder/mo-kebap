@@ -47,7 +47,7 @@ export function AdSlot({ adUnitId, className, minHeight = 250, width, height, re
   if (!hasConsent) return null
 
   const inlineStyles: React.CSSProperties = {
-    display: 'block',
+    display: !responsive && width && height ? 'inline-block' : 'block',
     width: width ? `${width}px` : '100%',
     minHeight: height ?? minHeight,
     height: height ? `${height}px` : undefined
@@ -59,7 +59,8 @@ export function AdSlot({ adUnitId, className, minHeight = 250, width, height, re
       className={className}
       style={{
         width: width ? `${width}px` : '100%',
-        display: 'block',
+        display: 'flex',
+        justifyContent: 'center',
         minHeight: height ?? minHeight,
         height: height ? `${height}px` : undefined,
         position: 'relative',
