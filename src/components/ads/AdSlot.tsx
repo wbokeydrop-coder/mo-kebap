@@ -1,0 +1,87 @@
+import { useEffect, useRef, useState } from 'react'
+import { useConsent } from '../hooks/useConsent'
+import { useAdsenseLoader } from '../hooks/useAdsenseLoader'
+
+type AdSlotProps = {
+  adUnitId: string
+  className?: string
+  minHeight?: number
+}
+
+export function AdSlot({ adUnitId, className, minHeight = 250 }: AdSlotProps) {
+  const { hasConsent } = useConsent()
+  const scriptReady = useAdsenseLoader(hasConsent)
+  const wrapRef = useRef<HTMLDivElement | null>(null)
+  const [canRender, setCanRender] = useState(false)
+
+  useEffect(() => {
+    if (!hasConsent || !wrapRef.current) return
+    const el = wrapRef.current
+    const checkWidth = () => {
+      const w = el.getBoundingClientRect().width
+      if (w > 16) setCanRender(true)
+    }
+    checkWidth()
+    const ro = new ResizeObserver(checkWidth)
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [hasConsent])
+
+  useEffect(() => {
+    if (!hasConsent || !scriptReady || !canRender) return
+    const ins = wrapRef.current?.querySelector('ins.adsbygoogle')
+    if (!ins) return
+    try {
+      // Ensure adsbygoogle is an array before pushing
+      const adsArray = ((window as any).adsbygoogle as unknown[]) || []
+      adsArray.push({})
+      ;(window as any).adsbygoogle = adsArray
+    } catch (e) {
+      console.warn('AdSense push error', e)
+    }
+  }, [hasConsent, scriptReady, canRender])
+
+  if (!hasConsent) return null
+
+  return (
+    <div
+      ref={wrapRef}
+      className={className}
+      style={{
+        width: '100%',
+        display: 'block',
+        minHeight,
+        position: 'relative',
+        margin: '16px 0'
+      }}
+    >
+      {!canRender && (
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: 14,
+            color: '#666',
+            background:
+              'linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.06))',
+            borderRadius: 8,
+            pointerEvents: 'none'
+          }}
+        >
+          Anzeige lädt...
+        </div>
+      )}
+      <ins
+        className="adsbygoogle"
+        style={{ display: 'block', width: '100%', minHeight }}
+        data-ad-client="ca-pub-3490607792366389"
+        data-ad-slot={adUnitId}
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      />
+    </div>
+  )
+}

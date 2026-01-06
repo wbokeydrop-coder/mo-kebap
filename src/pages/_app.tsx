@@ -7,8 +7,14 @@ import MobileAnchorAd from '../components/MobileAnchorAd'
 import CookieConsent from '../components/CookieConsent'
 import FloatingCartFab from '../components/FloatingCartFab'
 import { CartProvider } from '../context/CartContext'
+import { useConsent } from '../components/hooks/useConsent'
+import { useAdsenseLoader } from '../components/hooks/useAdsenseLoader'
+import { ConsentBar } from '../components/consent/ConsentBar'
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const { hasConsent, acceptConsent } = useConsent()
+  useAdsenseLoader(hasConsent)
+
   return (
     <CartProvider>
       <Header />
@@ -19,6 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <MobileAnchorAd />
       <Footer />
       <CookieConsent />
+      <ConsentBar hasConsent={hasConsent} onAccept={acceptConsent} />
     </CartProvider>
   )
 }

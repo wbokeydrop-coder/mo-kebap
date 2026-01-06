@@ -11,6 +11,7 @@ export default function Header(){
     <header className="site-header">
       <div className="header-inner">
         <Link href="/" className="brand">
+          {/* TODO: replace homepage hero/section image with real pizzeria photo */}
           <img 
             src="/images/logohead.png" 
             alt="MO KEBAP Logo" 

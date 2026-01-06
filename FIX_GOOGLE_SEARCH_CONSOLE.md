@@ -35,7 +35,9 @@
 ```json
 "@id": "https://mo-kebap.de/#restaurant"
 "url": "https://mo-kebap.de"
-"image": "https://mo-kebap.de/images/logo.png"
+<!-- Local copy of original image: https://mo-kebap.de/images/logo.png -->
+<!-- Downloaded and verified on 2026-01-04 -->
+"image": "/images/logo.jpg"
 "hasMenu": "https://mo-kebap.de/menu"
 ```
 
@@ -43,7 +45,9 @@
 ```json
 "@id": "https://www.mo-kebap.de/#restaurant"
 "url": "https://www.mo-kebap.de"
-"image": "https://www.mo-kebap.de/images/logo.png"
+<!-- Local copy of original image: https://www.mo-kebap.de/images/logo.png -->
+<!-- Downloaded and verified on 2026-01-04 -->
+"image": "/images/logo.jpg"
 "hasMenu": "https://www.mo-kebap.de/menu"
 ```
 
