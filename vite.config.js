@@ -8,7 +8,7 @@ import { fileURLToPath } from 'url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-const siteUrl = 'https://www.mo-kebap.de'
+const siteUrl = 'https://mo-kebap.de'
 
 export default defineConfig({
   plugins: [

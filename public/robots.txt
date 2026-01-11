@@ -17,7 +17,7 @@ Allow: /robots.txt
 Allow: /images/
 
 # Sitemap location
-Sitemap: https://www.mo-kebap.de/sitemap.xml
+Sitemap: https://mo-kebap.de/sitemap.xml
 
 # Google-specific (important for AdSense)
 User-agent: Googlebot

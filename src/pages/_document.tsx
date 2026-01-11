@@ -1,6 +1,8 @@
 // @ts-nocheck
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
+const siteUrl = 'https://mo-kebap.de/'
+
 class MyDocument extends Document {
   render() {
     return (
@@ -19,19 +21,19 @@ class MyDocument extends Document {
           <meta name="geo.position" content="48.4098;9.4957" />
           <meta name="ICBM" content="48.4098, 9.4957" />
           <meta property="og:type" content="restaurant" />
-          <meta property="og:url" content="https://www.mo-kebap.de/" />
+          <meta property="og:url" content={siteUrl} />
           <meta property="og:title" content="MO KEBAP Münsingen - Kebab, Döner & Pizza" />
           <meta property="og:description" content="Beste Döner, Kebab und Pizza in Münsingen (72525). Türkisches Essen frisch zubereitet. Jetzt online bestellen!" />
           {/* Default social image (1200x630) */}
           <meta property="og:image" content="/images/logohead.png" />
           <meta property="og:locale" content="de_DE" />
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:url" content="https://www.mo-kebap.de/" />
+          <meta name="twitter:url" content={siteUrl} />
           <meta name="twitter:title" content="MO KEBAP Münsingen - Kebab, Döner & Pizza" />
           <meta name="twitter:description" content="Beste Döner, Kebab und Pizza in Münsingen (72525). Türkisches Essen frisch zubereitet." />
           {/* Default social image (1200x630) */}
           <meta name="twitter:image" content="/images/logohead.png" />
-          <link rel="canonical" href="https://www.mo-kebap.de/" />
+          <link rel="canonical" href={siteUrl} />
           <meta name="google-adsense-account" content="ca-pub-3490607792366389" />
           <meta name="google-adsense-platform-account" content="ca-pub-3490607792366389" />
           <meta name="adsense-lazy-loading" content="enabled" />
@@ -60,13 +62,13 @@ class MyDocument extends Document {
                 '@graph': [
                   {
                     '@type': 'Restaurant',
-                    '@id': 'https://www.mo-kebap.de/#restaurant',
+                    '@id': `${siteUrl}#restaurant`,
                     name: 'Mo Kebap Münsingen',
-                    // Local copy of original image: https://www.mo-kebap.de/images/logo.jpg
+                    // Local copy of original image: https://mo-kebap.de/images/logo.jpg
                     // Downloaded and verified on 2026-01-04
                     image: '/images/logo.jpg',
                     description: 'Türkisches Restaurant in Münsingen – Döner, Kebab, Pizza, Lahmacun und Pide.',
-                    url: 'https://www.mo-kebap.de/',
+                    url: siteUrl,
                     telephone: '+49 174 9633343',
                     priceRange: '€',
                     servesCuisine: ['Türkisch', 'Pizza', 'Döner', 'Kebab'],
@@ -92,36 +94,36 @@ class MyDocument extends Document {
                       }
                     ],
                     acceptsReservations: false,
-                    hasMenu: 'https://www.mo-kebap.de/menu',
-                    menu: 'https://www.mo-kebap.de/menu'
+                    hasMenu: `${siteUrl}menu`,
+                    menu: `${siteUrl}menu`
                   },
                   {
                     '@type': 'Organization',
-                    '@id': 'https://www.mo-kebap.de/#organization',
+                    '@id': `${siteUrl}#organization`,
                     name: 'Mo Kebap Münsingen',
-                    url: 'https://www.mo-kebap.de/',
-                    // Local copy of original image: https://www.mo-kebap.de/images/logo.jpg
+                    url: siteUrl,
+                    // Local copy of original image: https://mo-kebap.de/images/logo.jpg
                     // Downloaded and verified on 2026-01-04
                     logo: '/images/logo.jpg',
                     sameAs: ['https://www.facebook.com/', 'https://www.instagram.com/']
                   },
                   {
                     '@type': 'WebSite',
-                    '@id': 'https://www.mo-kebap.de/#website',
-                    url: 'https://www.mo-kebap.de/',
+                    '@id': `${siteUrl}#website`,
+                    url: siteUrl,
                     name: 'Mo Kebap Münsingen',
                     inLanguage: 'de',
                     potentialAction: {
                       '@type': 'SearchAction',
-                      target: 'https://www.mo-kebap.de/search?q={search_term_string}',
+                      target: `${siteUrl}search?q={search_term_string}`,
                       'query-input': 'required name=search_term_string'
                     }
                   },
                   {
                     '@type': 'BreadcrumbList',
                     itemListElement: [
-                      { '@type': 'ListItem', position: 1, name: 'Start', item: 'https://www.mo-kebap.de/' },
-                      { '@type': 'ListItem', position: 2, name: 'Speisekarte', item: 'https://www.mo-kebap.de/menu' }
+                      { '@type': 'ListItem', position: 1, name: 'Start', item: siteUrl },
+                      { '@type': 'ListItem', position: 2, name: 'Speisekarte', item: `${siteUrl}menu` }
                     ]
                   }
                 ]
