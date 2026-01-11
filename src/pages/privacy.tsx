@@ -1,16 +1,34 @@
 // @ts-nocheck
 import React from 'react'
+import Head from 'next/head'
 import Link from 'next/link'
 
 export default function Privacy() {
   return (
-    <div style={{
-      maxWidth: '900px',
-      margin: '0 auto',
-      padding: '2rem 1rem',
-      color: '#e0e0e0',
-      lineHeight: '1.8'
-    }}>
+    <>
+      <Head>
+        <title>Datenschutzerklärung | Mo Kebap Münsingen</title>
+        <meta
+          name="description"
+          content="Datenschutzhinweise für mo-kebap.de: Verantwortlicher, Cookies, Logfiles, Rechte der Nutzer."
+        />
+        <link rel="canonical" href="https://mo-kebap.de/privacy" />
+        <meta property="og:title" content="Datenschutzerklärung – Mo Kebap Münsingen" />
+        <meta property="og:description" content="Details zur Datenverarbeitung, Cookies und Ihren Rechten." />
+        <meta property="og:url" content="https://mo-kebap.de/privacy" />
+        <meta property="og:image" content="https://mo-kebap.de/images/logo.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Datenschutzerklärung | Mo Kebap Münsingen" />
+        <meta name="twitter:description" content="Informationen zum Datenschutz auf mo-kebap.de." />
+        <meta name="twitter:image" content="https://mo-kebap.de/images/logo.jpg" />
+      </Head>
+      <div style={{
+        maxWidth: '900px',
+        margin: '0 auto',
+        padding: '2rem 1rem',
+        color: '#e0e0e0',
+        lineHeight: '1.8'
+      }}>
       <h1 style={{
         color: '#d4af37',
         fontSize: '2.5rem',
@@ -196,7 +214,8 @@ export default function Privacy() {
         <Link href="/impressum" style={{ color: '#d4af37' }}>Impressum</Link>. Bei Fragen können Sie uns über die{' '}
         <Link href="/contact" style={{ color: '#d4af37' }}>Kontaktseite</Link> erreichen.
       </p>
-    </div>
+      </div>
+    </>
   )
 }
 

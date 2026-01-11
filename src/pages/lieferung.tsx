@@ -1,9 +1,27 @@
 // @ts-nocheck
 import React from 'react'
+import Head from 'next/head'
 
 export default function Lieferung(){
   return (
-    <div className="page-shell">
+    <>
+      <Head>
+        <title>Lieferung & Abholung | Mo Kebap Münsingen</title>
+        <meta
+          name="description"
+          content="Liefergebiet, Lieferzeiten und Abholung bei Mo Kebap Münsingen. Schnell bestellen unter mo-kebap.de."
+        />
+        <link rel="canonical" href="https://mo-kebap.de/lieferung" />
+        <meta property="og:title" content="Lieferung – Mo Kebap Münsingen" />
+        <meta property="og:description" content="Informationen zu Lieferzeiten, Gebühren und Abholung." />
+        <meta property="og:url" content="https://mo-kebap.de/lieferung" />
+        <meta property="og:image" content="https://mo-kebap.de/images/logo.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Lieferung & Abholung | Mo Kebap Münsingen" />
+        <meta name="twitter:description" content="Schnelle Lieferung in Münsingen und Umgebung." />
+        <meta name="twitter:image" content="https://mo-kebap.de/images/logo.jpg" />
+      </Head>
+      <div className="page-shell">
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem 1rem', color: '#e0e0e0', lineHeight: 1.7 }}>
       <h1 style={{ color: '#d4af37', fontSize: '2.5rem', marginBottom: '1rem', borderBottom: '3px solid #d4af37', paddingBottom: '0.5rem' }}>Lieferung & Abholung</h1>
 
@@ -41,7 +59,8 @@ export default function Lieferung(){
         <p style={{ margin: 0, color: '#ddd' }}><strong>Tipp:</strong> Bei größeren Bestellungen kontaktieren Sie uns bitte telefonisch für eine kürzere Lieferzeit.</p>
       </div>
       </div>
-    </div>
+      </div>
+    </>
   )
 }
 

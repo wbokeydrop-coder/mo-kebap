@@ -1,9 +1,27 @@
 // @ts-nocheck
 import React from 'react'
+import Head from 'next/head'
 
 export default function About(){
   return (
-    <div className="page-shell">
+    <>
+      <Head>
+        <title>Über uns | Mo Kebap Münsingen – Familiengeführtes Restaurant</title>
+        <meta
+          name="description"
+          content="Erfahren Sie mehr über Mo Kebap Münsingen: frische Zutaten, hausgemachte Soßen, Döner und Pizza."
+        />
+        <link rel="canonical" href="https://mo-kebap.de/about" />
+        <meta property="og:title" content="Über Mo Kebap Münsingen" />
+        <meta property="og:description" content="Familiengeführtes Restaurant mit türkischen und italienischen Spezialitäten." />
+        <meta property="og:url" content="https://mo-kebap.de/about" />
+        <meta property="og:image" content="https://mo-kebap.de/images/logo.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Über uns | Mo Kebap Münsingen" />
+        <meta name="twitter:description" content="Lernen Sie unser Team und unsere Küche kennen." />
+        <meta name="twitter:image" content="https://mo-kebap.de/images/logo.jpg" />
+      </Head>
+      <div className="page-shell">
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem 1rem', color: '#e0e0e0', lineHeight: 1.7 }}>
       <h1 style={{ color: '#d4af37', fontSize: '2.5rem', marginBottom: '1rem', borderBottom: '3px solid #d4af37', paddingBottom: '0.5rem' }}>Über MO KEBAP</h1>
 
@@ -35,7 +53,8 @@ export default function About(){
         <p style={{ color: '#ccc' }}>Telefon: 0174 9633343<br/>E-Mail: info@mo-kebab.de<br/>Adresse: Hauptstraße, 72525 Münsingen</p>
       </section>
       </div>
-    </div>
+      </div>
+    </>
   )
 }
 

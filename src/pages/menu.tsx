@@ -1,5 +1,6 @@
 // @ts-nocheck
 import React from 'react'
+import Head from 'next/head'
 import Link from 'next/link'
 // Image source: images.pexels.com
 // Verified working on 2026-01-04
@@ -12,7 +13,24 @@ import ADS from '../config/ads'
 export default function MenuPage(){
   const categories = Array.from(new Set(menu.map(i => i.category)))
   return (
-    <div className="page-shell">
+    <>
+      <Head>
+        <title>Speisekarte | Mo Kebap Münsingen – Döner, Pide & Pizza</title>
+        <meta
+          name="description"
+          content="Speisekarte für Döner, Kebab, Lahmacun, Pide und Pizza in Münsingen. Jetzt online bestellen."
+        />
+        <link rel="canonical" href="https://mo-kebap.de/menu" />
+        <meta property="og:title" content="Speisekarte – Mo Kebap Münsingen" />
+        <meta property="og:description" content="Alle Gerichte und Preise, online bestellen oder abholen." />
+        <meta property="og:url" content="https://mo-kebap.de/menu" />
+        <meta property="og:image" content="https://mo-kebap.de/images/logo.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Speisekarte | Mo Kebap Münsingen" />
+        <meta name="twitter:description" content="Döner, Kebab, Lahmacun, Pide und Pizza – jetzt ansehen." />
+        <meta name="twitter:image" content="https://mo-kebap.de/images/logo.jpg" />
+      </Head>
+      <div className="page-shell">
       <div className="content-section">
         <div className="container">
         <h2 className="section-title">Unsere Speisekarte - Döner, Kebab & Pizza</h2>
@@ -71,7 +89,8 @@ export default function MenuPage(){
         <Link href="/order" style={{ color: 'var(--primary-gold)' }}>Checkout-Seite</Link> ab.
       </div>
       </div>
-    </div>
+      </div>
+    </>
   )
 }
 

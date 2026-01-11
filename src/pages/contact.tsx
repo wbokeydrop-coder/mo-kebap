@@ -1,12 +1,30 @@
 // @ts-nocheck
 import React from 'react'
+import Head from 'next/head'
 import Link from 'next/link'
 import OptimizedAdSense from '../components/OptimizedAdSense'
 import ADS from '../config/ads'
 
 export default function Contact(){
   return (
-    <div className="page-shell">
+    <>
+      <Head>
+        <title>Kontakt | Mo Kebap Münsingen – Adresse & Telefon</title>
+        <meta
+          name="description"
+          content="Kontakt zu Mo Kebap: Adresse Marktplatz 12, 72525 Münsingen. Telefon 01749633343, WhatsApp und Öffnungszeiten."
+        />
+        <link rel="canonical" href="https://mo-kebap.de/contact" />
+        <meta property="og:title" content="Kontakt – Mo Kebap Münsingen" />
+        <meta property="og:description" content="Adresse, Telefon, WhatsApp und Öffnungszeiten des Restaurants." />
+        <meta property="og:url" content="https://mo-kebap.de/contact" />
+        <meta property="og:image" content="https://mo-kebap.de/images/logo.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Kontakt | Mo Kebap Münsingen" />
+        <meta name="twitter:description" content="So erreichen Sie uns in Münsingen." />
+        <meta name="twitter:image" content="https://mo-kebap.de/images/logo.jpg" />
+      </Head>
+      <div className="page-shell">
       <div className="content-section">
         <div className="container">
         <h2 className="section-title">Kontakt & Standort</h2>
@@ -161,7 +179,8 @@ export default function Contact(){
         <Link href="/privacy" style={{ color: 'var(--primary-gold)' }}>Datenschutzerklärung</Link>.
       </div>
       </div>
-    </div>
+      </div>
+    </>
   )
 }
 

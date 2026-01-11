@@ -1,5 +1,6 @@
 // @ts-nocheck
 import React from 'react'
+import Head from 'next/head'
 import Link from 'next/link'
 import OptimizedAdSense from '../components/OptimizedAdSense.ssrfix'
 import ADS from '../config/ads'
@@ -10,7 +11,24 @@ export const runtime = 'nodejs'
 export default function Home(){
   // TODO: replace homepage hero/section image with real pizzeria photo
   return (
-    <section className="hero">
+    <>
+      <Head>
+        <title>Mo Kebap Münsingen | Döner, Kebab & Pizza online bestellen</title>
+        <meta
+          name="description"
+          content="Authentischer Döner, Kebab, Lahmacun und Pizza in Münsingen. Online bestellen unter mo-kebap.de mit schneller Lieferung."
+        />
+        <link rel="canonical" href="https://mo-kebap.de/" />
+        <meta property="og:title" content="Mo Kebap Münsingen – Beste Döner & Pizza" />
+        <meta property="og:description" content="Frische türkische und italienische Spezialitäten, jetzt online bestellen." />
+        <meta property="og:url" content="https://mo-kebap.de/" />
+        <meta property="og:image" content="https://mo-kebap.de/images/logo.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Mo Kebap Münsingen – Döner, Kebab & Pizza" />
+        <meta name="twitter:description" content="Schnelle Lieferung in Münsingen. Jetzt online bestellen." />
+        <meta name="twitter:image" content="https://mo-kebap.de/images/logo.jpg" />
+      </Head>
+      <section className="hero">
       {/* OPTIMIZED: Hero Auto Ad - High RPM placement at top of page */}
       <div style={{
         marginBottom: '2rem',
@@ -117,54 +135,54 @@ export default function Home(){
           marginBottom: '2rem'
         }}>
           {/* WhatsApp opcja */}
-          <div style={{
-            background: 'linear-gradient(135deg, rgba(37, 211, 102, 0.15) 0%, rgba(37, 211, 102, 0.05) 100%)',
-            padding: '2rem',
-            borderRadius: '20px',
-            border: '2px solid rgba(37, 211, 102, 0.3)',
-            textAlign: 'center',
-            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-            cursor: 'pointer'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'translateY(-5px)'
-            e.currentTarget.style.boxShadow = '0 10px 30px rgba(37, 211, 102, 0.3)'
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'translateY(0)'
-            e.currentTarget.style.boxShadow = 'none'
-          }}
-          onClick={() => window.location.href = '/menu'}
-          >
-            <div style={{fontSize: '3rem', marginBottom: '1rem'}}>💬</div>
-            <h3 style={{
-              color: '#25D366',
-              fontSize: '1.5rem',
-              marginBottom: '0.75rem',
-              fontWeight: '700'
-            }}>
-              WhatsApp Bestellung
-            </h3>
-            <p style={{
-              color: '#ddd',
-              fontSize: '0.95rem',
-              marginBottom: '1rem',
-              lineHeight: '1.6'
-            }}>
-              Bestellen Sie bequem über WhatsApp und bezahlen Sie bar bei Lieferung oder Abholung
-            </p>
+          <Link href="/menu" style={{ textDecoration: 'none' }}>
             <div style={{
-              display: 'inline-block',
-              padding: '0.75rem 1.5rem',
-              background: '#25D366',
-              color: 'white',
-              borderRadius: '50px',
-              fontWeight: '600',
-              fontSize: '1rem'
-            }}>
-              Jetzt bestellen →
+              background: 'linear-gradient(135deg, rgba(37, 211, 102, 0.15) 0%, rgba(37, 211, 102, 0.05) 100%)',
+              padding: '2rem',
+              borderRadius: '20px',
+              border: '2px solid rgba(37, 211, 102, 0.3)',
+              textAlign: 'center',
+              transition: 'transform 0.3s ease, box-shadow 0.3s ease'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-5px)'
+              e.currentTarget.style.boxShadow = '0 10px 30px rgba(37, 211, 102, 0.3)'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)'
+              e.currentTarget.style.boxShadow = 'none'
+            }}
+            >
+              <div style={{fontSize: '3rem', marginBottom: '1rem'}}>💬</div>
+              <h3 style={{
+                color: '#25D366',
+                fontSize: '1.5rem',
+                marginBottom: '0.75rem',
+                fontWeight: '700'
+              }}>
+                WhatsApp Bestellung
+              </h3>
+              <p style={{
+                color: '#ddd',
+                fontSize: '0.95rem',
+                marginBottom: '1rem',
+                lineHeight: '1.6'
+              }}>
+                Bestellen Sie bequem über WhatsApp und bezahlen Sie bar bei Lieferung oder Abholung
+              </p>
+              <div style={{
+                display: 'inline-block',
+                padding: '0.75rem 1.5rem',
+                background: '#25D366',
+                color: 'white',
+                borderRadius: '50px',
+                fontWeight: '600',
+                fontSize: '1rem'
+              }}>
+                Jetzt bestellen →
+              </div>
             </div>
-          </div>
+          </Link>
 
           {/* PayPal opcja */}
           <div style={{
@@ -206,7 +224,8 @@ export default function Home(){
           <Link href="/contact" className="btn secondary">Kontakt & Öffnungszeiten</Link>
         </div>
       </div>
-    </section>
+      </section>
+    </>
   )
 }
 

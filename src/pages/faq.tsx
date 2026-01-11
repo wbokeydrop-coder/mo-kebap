@@ -1,9 +1,27 @@
 // @ts-nocheck
 import React from 'react'
+import Head from 'next/head'
 
 export default function FAQ(){
   return (
-    <main style={{maxWidth: '900px', margin: '2rem auto', padding: '1rem', color: '#e0e0e0'}}>
+    <>
+      <Head>
+        <title>FAQ | Mo Kebap Münsingen – Häufige Fragen</title>
+        <meta
+          name="description"
+          content="Antworten zu Lieferung, Zahlung, Allergenen und Cookies bei Mo Kebap Münsingen."
+        />
+        <link rel="canonical" href="https://mo-kebap.de/faq" />
+        <meta property="og:title" content="FAQ – Mo Kebap Münsingen" />
+        <meta property="og:description" content="Informationen zu Lieferung, Zahlungsmethoden und Allergenen." />
+        <meta property="og:url" content="https://mo-kebap.de/faq" />
+        <meta property="og:image" content="https://mo-kebap.de/images/logo.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="FAQ | Mo Kebap Münsingen" />
+        <meta name="twitter:description" content="Alle häufigen Fragen und Antworten." />
+        <meta name="twitter:image" content="https://mo-kebap.de/images/logo.jpg" />
+      </Head>
+      <main style={{maxWidth: '900px', margin: '2rem auto', padding: '1rem', color: '#e0e0e0'}}>
       <h1 style={{color: '#d4af37'}}>FAQ – Häufig gestellte Fragen</h1>
 
       <section style={{marginTop: '1rem'}}>
@@ -34,7 +52,8 @@ export default function FAQ(){
       <div style={{marginTop: '2rem', padding: '1rem', background: 'rgba(212, 175, 55, 0.06)', borderLeft: '4px solid #d4af37'}}>
         <p style={{margin: 0}}>Wenn Sie weitere Fragen haben, kontaktieren Sie uns bitte telefonisch oder über das Kontaktformular.</p>
       </div>
-    </main>
+      </main>
+    </>
   )
 }
 

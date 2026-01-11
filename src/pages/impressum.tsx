@@ -1,10 +1,28 @@
 // @ts-nocheck
 import React from 'react'
+import Head from 'next/head'
 import Link from 'next/link'
 
 export default function Impressum(){
   return (
-    <div style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem 1rem', color: '#e0e0e0', lineHeight: 1.7 }}>
+    <>
+      <Head>
+        <title>Impressum | Mo Kebap Münsingen</title>
+        <meta
+          name="description"
+          content="Rechtliche Angaben zu Mo Kebap Münsingen: Betreiber, Kontakt, USt-ID."
+        />
+        <link rel="canonical" href="https://mo-kebap.de/impressum" />
+        <meta property="og:title" content="Impressum – Mo Kebap Münsingen" />
+        <meta property="og:description" content="Rechtliche Pflichtangaben des Restaurants." />
+        <meta property="og:url" content="https://mo-kebap.de/impressum" />
+        <meta property="og:image" content="https://mo-kebap.de/images/logo.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Impressum | Mo Kebap Münsingen" />
+        <meta name="twitter:description" content="Rechtliche Informationen und Kontakt." />
+        <meta name="twitter:image" content="https://mo-kebap.de/images/logo.jpg" />
+      </Head>
+      <div style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem 1rem', color: '#e0e0e0', lineHeight: 1.7 }}>
       <h1 style={{ color: '#d4af37', fontSize: '2.5rem', marginBottom: '1rem', borderBottom: '3px solid #d4af37', paddingBottom: '0.5rem' }}>Impressum</h1>
 
       <section style={{ marginBottom: '1rem' }}>
@@ -38,7 +56,8 @@ export default function Impressum(){
         oder informieren Sie sich in unserer{' '}
         <Link href="/privacy" style={{ color: '#d4af37' }}>Datenschutzerklärung</Link>.
       </p>
-    </div>
+      </div>
+    </>
   )
 }
 

@@ -11,29 +11,6 @@ class MyDocument extends Document {
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-          <title>Mo Kebap Münsingen – Döner, Pizza & Türkische Spezialitäten | Online bestellen</title>
-          <meta name="description" content="Frischer Döner, Pizza und türkische Spezialitäten in Münsingen. Jetzt online bestellen auf mo-kebap.de – schnelle Lieferung, faire Preise, hausgemachte Qualität." />
-          <meta name="keywords" content="Kebab Münsingen, Döner Münsingen, Pizza Münsingen, türkisches Essen Münsingen, schnelles Essen in der Nähe, Döner Baden-Württemberg, Lahmacun, Pide, Restaurant Münsingen 72525" />
-          <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-          <meta name="author" content="MO KEBAP Münsingen" />
-          <meta name="geo.region" content="DE-BW" />
-          <meta name="geo.placename" content="Münsingen" />
-          <meta name="geo.position" content="48.4098;9.4957" />
-          <meta name="ICBM" content="48.4098, 9.4957" />
-          <meta property="og:type" content="restaurant" />
-          <meta property="og:url" content={siteUrl} />
-          <meta property="og:title" content="MO KEBAP Münsingen - Kebab, Döner & Pizza" />
-          <meta property="og:description" content="Beste Döner, Kebab und Pizza in Münsingen (72525). Türkisches Essen frisch zubereitet. Jetzt online bestellen!" />
-          {/* Default social image (1200x630) */}
-          <meta property="og:image" content="/images/logohead.png" />
-          <meta property="og:locale" content="de_DE" />
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:url" content={siteUrl} />
-          <meta name="twitter:title" content="MO KEBAP Münsingen - Kebab, Döner & Pizza" />
-          <meta name="twitter:description" content="Beste Döner, Kebab und Pizza in Münsingen (72525). Türkisches Essen frisch zubereitet." />
-          {/* Default social image (1200x630) */}
-          <meta name="twitter:image" content="/images/logohead.png" />
-          <link rel="canonical" href={siteUrl} />
           <meta name="google-adsense-account" content="ca-pub-3490607792366389" />
           <meta name="google-adsense-platform-account" content="ca-pub-3490607792366389" />
           <meta name="adsense-lazy-loading" content="enabled" />
@@ -64,8 +41,6 @@ class MyDocument extends Document {
                     '@type': 'Restaurant',
                     '@id': `${siteUrl}#restaurant`,
                     name: 'Mo Kebap Münsingen',
-                    // Local copy of original image: https://mo-kebap.de/images/logo.jpg
-                    // Downloaded and verified on 2026-01-04
                     image: '/images/logo.jpg',
                     description: 'Türkisches Restaurant in Münsingen – Döner, Kebab, Pizza, Lahmacun und Pide.',
                     url: siteUrl,
@@ -102,8 +77,6 @@ class MyDocument extends Document {
                     '@id': `${siteUrl}#organization`,
                     name: 'Mo Kebap Münsingen',
                     url: siteUrl,
-                    // Local copy of original image: https://mo-kebap.de/images/logo.jpg
-                    // Downloaded and verified on 2026-01-04
                     logo: '/images/logo.jpg',
                     sameAs: ['https://www.facebook.com/', 'https://www.instagram.com/']
                   },
