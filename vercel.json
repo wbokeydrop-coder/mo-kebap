@@ -54,9 +54,23 @@
   ],
   "redirects": [
     {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         { "type": "host", "value": "www.mo-kebap.de" }
+      ],
+      "destination": "https://mo-kebap.de/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        { "type": "host", "value": "mo-kebap.de" },
+        { "type": "protocol", "value": "http" }
       ],
       "destination": "https://mo-kebap.de/:path*",
       "permanent": true
