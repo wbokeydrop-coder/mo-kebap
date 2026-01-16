@@ -21,8 +21,10 @@ export function ConsentBar({ hasConsent, onAccept }: ConsentBarProps) {
         alignItems: 'center',
         justifyContent: 'space-between'
       }}
+      lang="de"
+      data-lang="de"
     >
-      <span>Diese Website verwendet AdSense. Stimmen Sie zu?</span>
+      <span>Diese Website verwendet Cookies (inkl. AdSense). Stimmen Sie der Nutzung zu?</span>
       <button
         onClick={onAccept}
         style={{ marginLeft: 12, padding: '8px 14px', cursor: 'pointer' }}
