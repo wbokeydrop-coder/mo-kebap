@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
       </main>
       <FloatingCartFab />
-      <MobileAnchorAd />
+      {/* <MobileAnchorAd />  // Wyłączone: reklama anchor zasłania stronę na mobile */}
       <Footer />
     </CartProvider>
   )
