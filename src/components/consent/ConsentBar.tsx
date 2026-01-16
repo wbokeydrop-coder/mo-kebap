@@ -22,12 +22,12 @@ export function ConsentBar({ hasConsent, onAccept }: ConsentBarProps) {
         justifyContent: 'space-between'
       }}
     >
-      <span>Ta strona używa AdSense. Akceptujesz?</span>
+      <span>Diese Website verwendet AdSense. Stimmen Sie zu?</span>
       <button
         onClick={onAccept}
         style={{ marginLeft: 12, padding: '8px 14px', cursor: 'pointer' }}
       >
-        Akceptuję
+        Akzeptieren
       </button>
     </div>
   )
