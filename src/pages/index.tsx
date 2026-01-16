@@ -74,9 +74,10 @@ export default function Home(){
           marginTop: '0.5rem',
           alignItems: 'center'
         }}>
-          <Link href="/menu" className="btn secondary" style={{padding: '0.5rem 0.95rem'}}>
+          {/* Tymczasowo ukryty przycisk do menu */}
+          {/* <Link href="/menu" className="btn secondary" style={{padding: '0.5rem 0.95rem'}}>
             Speisekarte ansehen
-          </Link>
+          </Link> */}
           <Link href="/lieferung" className="btn ghost" style={{padding: '0.5rem 0.95rem'}}>
             Lieferung & Abholung
           </Link>

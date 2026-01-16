@@ -53,7 +53,8 @@ export default function Header(){
 
         <nav className={`nav ${open ? 'nav-open' : ''}`}>
           <Link href="/">Startseite</Link>
-          <Link href="/menu">Speisekarte</Link>
+          {/* Tymczasowo ukryty link do menu */}
+          {/* <Link href="/menu">Speisekarte</Link> */}
           <Link href="/about">Über uns</Link>
           <Link href="/lieferung">Lieferung</Link>
           <Link href="/order">Bestellen</Link>

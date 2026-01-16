@@ -95,8 +95,8 @@ class MyDocument extends Document {
                   {
                     '@type': 'BreadcrumbList',
                     itemListElement: [
-                      { '@type': 'ListItem', position: 1, name: 'Start', item: siteUrl },
-                      { '@type': 'ListItem', position: 2, name: 'Speisekarte', item: `${siteUrl}menu` }
+                      { '@type': 'ListItem', position: 1, name: 'Start', item: siteUrl }
+                      // { '@type': 'ListItem', position: 2, name: 'Speisekarte', item: `${siteUrl}menu` } // menu wyłączone
                     ]
                   }
                 ]
