@@ -1,5 +1,5 @@
 export default {
-  routes: ['/', '/menu', '/order', '/contact', '/about', '/lieferung', '/privacy'],
+  routes: ['/', '/order', '/contact', '/about', '/lieferung', '/privacy'],
   sitemap: true,
   robotsTxt: true
 }
